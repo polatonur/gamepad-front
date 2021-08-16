@@ -1,0 +1,41 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20px;
+  padding-bottom: 20px;
+}
+
+.pagination .pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination .pages .icon {
+  cursor: pointer;
+  color: rgb(223, 223, 217);
+  margin: 10px;
+}
+
+.pagination .page-number {
+  cursor: pointer;
+  margin: 10px;
+  color: rgb(223, 223, 217);
+}
+.pagination .pages > * {
+  color: rgb(223, 223, 217);
+}
+.pagination .pages .icon1:hover,
+.pagination .pages .icon:hover,
+.pagination .page-number:hover {
+  text-decoration: underline;
+}
+.active {
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gamepad-red);
+  font-size: 1.5rem;
+}

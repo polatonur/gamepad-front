@@ -1,0 +1,49 @@
+/*------------------------ HEADER ------------------------ */
+header{
+    box-sizing: border-box;
+    height:73px;
+    border-bottom: 2px solid var(--gamepad-red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+.header a .header_logo_block{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+.header .header_logo{
+height: 45px;
+transform: rotateZ(90deg);}
+.header .logo_text{
+    color: #fff;
+    font-size:34px;
+    line-height: 34px;
+}
+.header nav button{
+    background-color: var(--gamepad-red);
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 21px;
+    font-family: 'Exo', sans-serif;
+    border: none;
+    margin-left: 15px;
+}
+header nav span {
+    color: #fff;
+    font-size: 20px;
+    line-height: 21px;
+    font-family: 'Exo', sans-serif;
+    margin-right: 10px;
+}
+header nav span:hover{
+    border-bottom: 1px solid white;
+}
+header nav button:hover{
+    background-color: white;
+    color: var(--gamepad-red);
+}
