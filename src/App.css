@@ -1,13 +1,13 @@
 /*------------------------ GLOBAL RULES ------------------------ */
-:root{
-    --gamepad-red: #FF4655;
+:root {
+  --gamepad-red: #ff4655;
 }
-body{
-    font-family:'Exo', sans-serif;
-    background-color: #171719;
+body {
+  font-family: "Exo", sans-serif;
+  background-color: #171719;
 }
-.container{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: #1f2023;
+.container {
+  width: 1380px;
+  margin: 0 auto;
+  background-color: #1f2023;
 }

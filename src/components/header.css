@@ -1,49 +1,95 @@
 /*------------------------ HEADER ------------------------ */
-header{
-    box-sizing: border-box;
-    height:73px;
-    border-bottom: 2px solid var(--gamepad-red);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
+header {
+  box-sizing: border-box;
+  height: 73px;
+  border-bottom: 2px solid var(--gamepad-red);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
 }
-.header a .header_logo_block{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    
+.header a .header_logo_block {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
-.header .header_logo{
-height: 45px;
-transform: rotateZ(90deg);}
-.header .logo_text{
-    color: #fff;
-    font-size:34px;
-    line-height: 34px;
+.header .header_logo {
+  height: 45px;
+  transform: rotateZ(90deg);
 }
-.header nav button{
-    background-color: var(--gamepad-red);
-    border-radius: 10px;
-    padding: 5px 10px;
-    color: #fff;
-    font-size: 20px;
-    line-height: 21px;
-    font-family: 'Exo', sans-serif;
-    border: none;
-    margin-left: 15px;
+.header .logo_text {
+  color: #fff;
+  font-size: 34px;
+  line-height: 34px;
 }
-header nav span {
-    color: #fff;
-    font-size: 20px;
-    line-height: 21px;
-    font-family: 'Exo', sans-serif;
-    margin-right: 10px;
+.header nav {
+  display: flex;
+  align-items: center;
 }
-header nav span:hover{
-    border-bottom: 1px solid white;
+.header nav button {
+  background-color: var(--gamepad-red);
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 21px;
+  font-family: "Exo", sans-serif;
+  border: none;
+  margin-left: 15px;
 }
-header nav button:hover{
-    background-color: white;
-    color: var(--gamepad-red);
+header nav .header_link_1 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 21px;
+  font-family: "Exo", sans-serif;
+  margin-right: 10px;
+}
+header nav .header_link_1:hover {
+  border-bottom: 1px solid white;
+}
+header nav button:hover {
+  background-color: white;
+  color: var(--gamepad-red);
+}
+header nav .username {
+  color: #fff;
+  font-size: 20px;
+  line-height: 21px;
+  font-weight: bold;
+  font-family: "Exo", sans-serif;
+  margin-left: 10px;
+}
+header nav .profile_photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: thistle;
+  margin-left: 10px;
+}
+header nav .profile_photo > span {
+  font-size: 30px;
+  line-height: 21px;
+  font-weight: bold;
+  font-family: "Exo", sans-serif;
+  text-decoration: none;
+}
+header nav .profile_photo img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: tomato;
+}
+nav div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav div .logout_btn {
+  background-color: black;
 }

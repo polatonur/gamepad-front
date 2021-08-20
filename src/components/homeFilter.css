@@ -1,0 +1,43 @@
+/*------------------------ FILTER BLOCK ------------------------ */
+.home_main .filter {
+  font-family: "Exo", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 20px;
+}
+.home_main .filter > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home_main .filter .go_filters_btn {
+  background-color: var(--gamepad-red);
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 20px;
+  font-family: "Exo", sans-serif;
+  border: none;
+}
+.home_main .filter select {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgb(95, 94, 94);
+  border-radius: 0 8px 8px 0;
+  height: 30px;
+  color: white;
+  margin-right: 20px;
+}
+.home_main .filter select option {
+  font-size: 20px;
+}
+.home_main .filter span {
+  color: white;
+  background-color: rgb(95, 94, 94);
+  padding: 7px 5px;
+  border-radius: 8px 0 0 8px;
+}

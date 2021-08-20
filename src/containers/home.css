@@ -1,110 +1,124 @@
 /*------------------------ HOME HERO ------------------------ */
-
-.home .home_hero{
-    width: 550px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 30px auto;
-    font-family:'Exo', sans-serif;
-    
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.home .home_hero .hero_search_block{
-    margin-left: 10px;
-    position: relative;
-    width: 95%;
-    height: 60px;
-    background-color:#404040;
-    border-radius: 20px;
-    padding: 0;
+.home .home_hero {
+  padding-top: 20px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: "Exo", sans-serif;
 }
-.home .home_hero .hero_search_block input{
-    padding-left: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 60px;
-    background-color:#404040;
-    border-radius: 20px;
-    width: 90%;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 20px;
-    font-family:'Exo', sans-serif;    
+.home .home_hero .hero_search_block {
+  margin-left: 10px;
+  position: relative;
+  width: 95%;
+  height: 60px;
+  background-color: #404040;
+  border-radius: 20px;
+  padding: 0;
 }
-.home .home_hero .hero_search_block input::placeholder{
-    color: #bbb;
-    font-size: 20px;
+.home .home_hero .hero_search_block input {
+  padding-left: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  background-color: #404040;
+  border-radius: 20px;
+  width: 90%;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Exo", sans-serif;
 }
-.home .home_hero .hero_search_block .search-icon{
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #bbb;
+.home .home_hero .hero_search_block input::placeholder {
+  color: #bbb;
+  font-size: 20px;
 }
-.home .home_hero .hero_search_block:focus{
-    background-color: white;
+.home .home_hero .hero_search_block .search-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #bbb;
+}
+.home .home_hero .hero_search_block:focus {
+  background-color: white;
 }
 .home .home_hero h4 {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #fff;
+  margin: 10px auto;
+  font-size: 16px;
+  color: #fff;
 }
-
+.home .home_hero .searchTextBlock {
+  margin-top: 15px;
+  color: white;
+  font-size: 2rem;
+}
+.home .home_hero .searchTextBlock > span {
+  text-decoration: underline;
+  text-decoration-color: var(--gamepad-red);
+}
 /*------------------------ HOME MAIN ------------------------ */
-.home .home_main{
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 30px;
+.home .home_main {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
 }
-.home .home_main .main_title_block{
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-} 
-
-.home .home_main .main_title_block h1{
-    color: #fff;
-    font: 30px 'Exo', sans-serif;
+.home .home_main .main_title_block {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
-.home .home_main .main_cards{
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 30px;
+.home .home_main .main_title_block h1 {
+  color: #fff;
+  font: 30px "Exo", sans-serif;
 }
-.main_cards .card{
-    overflow: hidden;
-    margin: 10px;
-    position: relative;
-    width: 200px;
-    height: 250px;
-    background-color: tomato;
-    border-radius: 20px;
+
+.home .home_main .main_cards {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 30px;
 }
-.main_cards .card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.main_cards .card {
+  overflow: hidden;
+  margin: 15px;
+  position: relative;
+  width: 300px;
+  height: 370px;
+  background-color: tomato;
+  border-radius: 20px;
 }
-.main_cards .card .card_text{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 40px;
-    width: 95%;
-    padding: 0 5px;
-   
+.main_cards .card:hover {
+  box-shadow: 0 0 10px var(--gamepad-red);
+  transform: scale(1.01);
 }
-.main_cards .card .card_title{
-   
-    color: #fff;
+.main_cards .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main_cards .card .card_text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 95%;
+  padding: 0 5px;
+}
+.main_cards .card .card_title {
+  color: #fff;
 }

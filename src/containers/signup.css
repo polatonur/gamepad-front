@@ -1,0 +1,164 @@
+.signup {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup .signup_block {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 850px;
+  height: 530px;
+  display: flex;
+}
+.signup_block > div {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 65px 30px;
+}
+.signup_block .col_1 {
+  border-right: 2px solid var(--gamepad-red);
+  background: linear-gradient(#37373b, #0f0f0f);
+}
+.signup_block .col_2 {
+  background: linear-gradient(#0f0f0f, #37373b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup .signup_block img {
+  height: 30px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.signup_block .col_1 div {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.signup_block .col_1 h1 {
+  position: relative;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 2rem;
+}
+.signup_block .col_1 div > span {
+  color: white;
+  margin-left: 20px;
+}
+.signup_block .col_1 .signup_icon {
+  font-size: 1.5rem;
+}
+.signup_block .col_1 h1::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 50%;
+  bottom: 2px;
+  z-index: -1;
+  background-color: var(--gamepad-red);
+}
+.signup .col_2 button {
+  background-color: var(--gamepad-red);
+  border-radius: 10px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  height: 40px;
+  font-family: "Exo", sans-serif;
+  border: none;
+}
+.signup_block .col_2 form .title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.signup_block .col_2 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signup_block .col_2 form h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.signup_block .col_2 form input {
+  font-size: 1.05rem;
+  box-sizing: border-box;
+  padding: 2px 5px;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+}
+.signup_block .col_2 form input::placeholder {
+  font-family: "Exo", sans-serif;
+}
+.signup_block .col_2 form p {
+  color: white;
+  margin-top: 20px;
+}
+.signup form .signup-pass {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.signup_block .col_2 .signup-pass input {
+  width: 49%;
+}
+.signup_block .col_2 .signup_add_photo_block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.signup_block .col_2 .signup_add_photo_block p {
+  margin-top: 0;
+  text-overflow: hidden;
+  white-space: nowrap;
+  max-width: 40%;
+}
+.signup_block .col_2 .signup_add_photo_block input {
+  display: none;
+}
+.signup_block .col_2 .signup_add_photo_block .upload_photo {
+  background-color: white;
+  width: 49%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.signup_block .col_2 .signup_add_photo_block .upload_photo .upload_icon {
+  margin-left: 9px;
+}
+.signup_block .message_block {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.login_block .message_block p {
+  color: #fff;
+  font-size: 1.1rem;
+}
+.signup_block .message {
+  color: red;
+  font-size: 1.1rem;
+}

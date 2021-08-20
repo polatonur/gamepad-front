@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pagination = ({ count, activePage, setActivePage }) => {
   let pages = [];
-  const firstPage = 1;
-
-  if (activePage === 1) {
+  count = Math.ceil(count / 20);
+  if (count === 1) {
+    pages = [1];
+  } else if (count === 2) {
+    pages = [1, 2];
+  } else if (activePage === 1) {
     pages = [1, 2, 3];
   } else if (activePage === 2) {
     pages = [1, 2, 3];
@@ -20,8 +23,7 @@ const Pagination = ({ count, activePage, setActivePage }) => {
     <div className="pagination">
       <div className="pages">
         <FontAwesomeIcon
-          onClick={() => setActivePage(firstPage)}
-          onClick
+          onClick={() => setActivePage(1)}
           className="icon"
           icon="angle-double-left"
         />
@@ -38,6 +40,7 @@ const Pagination = ({ count, activePage, setActivePage }) => {
         {pages.map((elem) => {
           return (
             <span
+              key={elem}
               className={`page-number ${elem === activePage && "active"}`}
               onClick={() => setActivePage(elem)}
             >
@@ -49,7 +52,11 @@ const Pagination = ({ count, activePage, setActivePage }) => {
           <span>. . .</span>
         )}
         <FontAwesomeIcon
-          onClick={() => setActivePage(activePage + 1)}
+          onClick={() => {
+            if (activePage < count) {
+              setActivePage(activePage + 1);
+            }
+          }}
           className="icon"
           icon="angle-right"
         />

@@ -6682,6 +6682,11 @@ jest@26.6.0:
     import-local "^3.0.2"
     jest-cli "^26.6.0"
 
+js-cookie@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.0.tgz#db1661d5459920ec95aaf186ccf74ceb4a495164"
+  integrity sha512-oUbbplKuH07/XX2YD2+Q+GMiPpnVXaRz8npE7suhBH9QEkJe2W7mQ6rwuMXHue3fpfcftQwzgyvGzIHyfCSngQ==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -9033,6 +9038,11 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+react-activity@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-activity/-/react-activity-2.1.1.tgz#39cfdf5138edec3a9e86780771a3c83571ff68d4"
+  integrity sha512-QzArf8ED9Q2s8z30IB5VOMqbBsjZrc/Tj6Yc0TxN4UrjZ8hIr8wfAcTS+0IoAR0BiqaQ36wdhnrSFDLg+nxfuQ==
 
 react-app-polyfill@^2.0.0:
   version "2.0.0"
