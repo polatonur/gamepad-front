@@ -1,7 +1,7 @@
 import "./login.css";
 import logoSmall from "../assets/img/logo_header.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import ActivityIndicator from "../components/ActivityIndicator";
@@ -11,26 +11,42 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
+  const [displayPassword, setDisplayPassword] = useState(false);
+  const [displayConfirmPassword, setDisplayConfirmPassword] = useState(false);
 
   const history = useHistory();
+  const location = useLocation();
+  console.log(location);
+  let precedentPath = "";
+  if (location.state) {
+    precedentPath = location.state.precedentPath;
+  }
 
   const handleSubmit = async (event) => {
     setSending(true);
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("http://localhost:5000/user/login", {
         password,
         email,
       });
       console.log(response.data);
       const { token, username, avatar, _id } = response.data.message;
       setUser(token, username, avatar, _id);
-      history.push("/");
+      if (precedentPath !== "/signup") {
+        console.log(precedentPath);
+        history.push(precedentPath);
+      } else {
+        history.push("/");
+      }
     } catch (error) {
-      console.log("error");
-      console.log(error.response.data.message);
-      setMessage(error.response.data.message);
-      console.log(error);
+      console.log("error ===>", error);
+      if (error.response) {
+        if (error.response.data) {
+          console.log(error.response.data.message);
+          setMessage(error.response.data.message);
+        }
+      }
     }
     setSending(false);
   };
@@ -87,6 +103,7 @@ const Login = ({ setUser }) => {
               placeholder="Password .."
               required
             />
+
             <section className="message_block">
               {sending ? (
                 <p> ... </p>

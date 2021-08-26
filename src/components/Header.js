@@ -5,7 +5,8 @@ import logo from "../assets/img/logo_header.png";
 import "./header.css";
 
 const Header = ({ token, setToken }) => {
-  console.log(token);
+  // console.log(token);
+  // console.log(Cookies.get("userName"));
   return (
     <header className="header container">
       <Link to="/">
@@ -31,13 +32,15 @@ const Header = ({ token, setToken }) => {
         ) : (
           <div className="token_ok">
             <span className="username">{Cookies.get("userName")}</span>
-            <div className="profile_photo">
-              {Cookies.get("userAvatar") ? (
-                <img src={`${Cookies.get("userAvatar")}`} alt="profile" />
-              ) : (
-                <span>{Cookies.get("userName")[0]}</span>
-              )}
-            </div>
+            <Link to="/user/account/">
+              <div className="profile_photo">
+                {Cookies.get("userAvatar") !== "undefined" ? (
+                  <img src={`${Cookies.get("userAvatar")}`} alt="profile" />
+                ) : (
+                  <span>{Cookies.get("userName")[0]}</span>
+                )}
+              </div>
+            </Link>
             <button className="logout_btn" onClick={() => setToken(null)}>
               <FontAwesomeIcon icon="sign-out-alt" />
             </button>

@@ -1,38 +1,78 @@
 import "./game.css";
-import { useParams, useLocation, useHistory } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 import ActivityIndicator from "../components/ActivityIndicator";
 import Cookies from "js-cookie";
+import WriteAReview from "../components/WriteAReview";
+import Review from "../components/Review";
 
-const Game = ({ token }) => {
+const Game = ({ token, getCollectionList, userCollection }) => {
   const [data, setData] = useState();
   const [isLoading, setIsloading] = useState(true);
   const [gamesLikeData, setGamesLikeData] = useState("");
+  const [displayWriteReview, setDisplayWriteReview] = useState(false);
+  const [gameRewiews, setGameReviews] = useState("");
+  const [userRatings, setUserRatings] = useState("");
   const { id } = useParams();
-  const { state } = useLocation();
   const history = useHistory();
+
+  let isGameSaved = false;
+
+  const getGameReviewList = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/game/reviews/get/${id}`
+      );
+      console.log(response.data.message);
+
+      if (response.data.message) {
+        setGameReviews(response.data.message);
+        console.log("reviews ===>", response.data.message);
+      } else {
+        setGameReviews([]);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const getUserRatingList = async () => {
+    try {
+      const userId = Cookies.get("userId");
+      const response = await axios.get(
+        `http://localhost:5000/user/ratings/get?id=${userId}`
+      );
+      console.log("getUserRatingList==>", response.data);
+      setUserRatings(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response1 = await axios.get(`http://localhost:5000/game/${id}`);
-        console.log(response1.data);
+        // console.log(response1.data);
         setData(response1.data);
+        getGameReviewList();
         if (response1.status === 200) {
           try {
             const params = {
               page_size: 6,
               ordering: "relavance",
-              search: state.name,
+              search: response1.data.message.name,
               genres: response1.data.message.genres[0].slug,
             };
-            const response2 = await axios.get("http://localhost:5000/games", {
-              params: params,
-            });
+            const response2 = await axios.get(
+              "http://localhost:5000/game/all",
+              {
+                params: params,
+              }
+            );
             const results = response2.data.message.results;
             console.log();
             let counter = 0;
@@ -58,7 +98,9 @@ const Game = ({ token }) => {
       }
     };
     fetchData();
-  }, [id, state.name]);
+    getCollectionList();
+    getUserRatingList();
+  }, [id]);
 
   const handleSaveToCollection = async () => {
     const gameData = {
@@ -67,24 +109,42 @@ const Game = ({ token }) => {
       photo: data.message.background_image,
     };
 
-    console.log(gameData);
+    // console.log(gameData);
 
     const id = Cookies.get("userId");
+    const token = Cookies.get("userToken");
     const operation = "add";
     try {
-      const response = axios.post(
-        "http://localhost:5000/user/update/collection",
+      const response = await axios.put(
+        "http://localhost:5000/user/collection/update",
         {
           gameData,
           id,
           operation,
+        },
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
         }
       );
-      //   console.log("handleSaveToCollection");
+      console.log(response.data.message);
+      getCollectionList();
+      // console.log("handleSaveToCollection");
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  if (!isLoading) {
+    const games = userCollection;
+    for (let i = 0; i < games.length; i++) {
+      if (Number(games[i].game_id) === Number(id)) {
+        isGameSaved = true;
+        break;
+      }
+    }
+  }
 
   return isLoading ? (
     <ActivityIndicator />
@@ -100,18 +160,39 @@ const Game = ({ token }) => {
             <section className="info_col_2_line_1">
               <div
                 onClick={() => {
-                  token ? handleSaveToCollection() : history.push("/login");
+                  token
+                    ? handleSaveToCollection()
+                    : history.push({
+                        pathname: "/login",
+                        state: {
+                          precedentPath: "/game/" + data.message.id,
+                        },
+                      });
                 }}
               >
-                <p>Save to</p>
+                <p>{isGameSaved && token ? "Saved" : "Save"} to</p>
                 <p>
-                  <span style={{ color: token && "lightgreen" }}>
+                  <span style={{ color: isGameSaved && token && "lightgreen" }}>
                     Collection
                   </span>{" "}
-                  <FontAwesomeIcon icon="bookmark" />
+                  <FontAwesomeIcon
+                    icon="bookmark"
+                    style={{ color: isGameSaved && token && "lightgreen" }}
+                  />
                 </p>
               </div>
-              <div>
+              <div
+                onClick={() => {
+                  token
+                    ? setDisplayWriteReview(true)
+                    : history.push({
+                        pathname: "/login",
+                        state: {
+                          precedentPath: "/game/" + data.message.sid,
+                        },
+                      });
+                }}
+              >
                 <p>Add a</p>
                 <p>
                   <span>Review</span> <FontAwesomeIcon icon="comment" />
@@ -123,10 +204,13 @@ const Game = ({ token }) => {
                 <section className="info_col_2_line_2">
                   <h2>Platforms</h2>
                   <p>
-                    {data.message.platforms.map((elem) => {
+                    {data.message.platforms.map((elem, index) => {
                       return (
                         <span className="platforms" key={elem.platform.id}>
-                          {elem.platform.name},
+                          {elem.platform.name}
+                          {data.message.platforms.length !== index + 1 && (
+                            <span>,</span>
+                          )}
                         </span>
                       );
                     })}
@@ -139,8 +223,15 @@ const Game = ({ token }) => {
                 <section className="info_col_2_line_4">
                   <h2>Publisher</h2>
                   <p>
-                    {data.message.publishers.map((elem) => {
-                      return <span key={elem.id}>{elem.name}, </span>;
+                    {data.message.publishers.map((elem, index) => {
+                      return (
+                        <span key={elem.id}>
+                          {elem.name}{" "}
+                          {data.message.publishers.length !== index + 1 && (
+                            <span>,</span>
+                          )}{" "}
+                        </span>
+                      );
                     })}
                   </p>
                 </section>
@@ -150,8 +241,15 @@ const Game = ({ token }) => {
                   <h2>Genre</h2>
                   <p>
                     {" "}
-                    {data.message.genres.map((elem) => {
-                      return <span key={elem.id}>{elem.name}, </span>;
+                    {data.message.genres.map((elem, index) => {
+                      return (
+                        <span key={elem.id}>
+                          {elem.name}{" "}
+                          {data.message.genres.length !== index + 1 && (
+                            <span>,</span>
+                          )}{" "}
+                        </span>
+                      );
                     })}
                   </p>
                 </section>
@@ -179,9 +277,10 @@ const Game = ({ token }) => {
       <div className="games_like">
         <h1>Games like {data.message.name}</h1>
         <div className="game_like_ame_cards">
-          {gamesLikeData.map((elem, index) => {
+          {gamesLikeData.map((elem) => {
             return (
               <Link
+                key={elem.id}
                 to={{
                   pathname: `/game/${elem.id}`,
                   state: { name: elem.name },
@@ -199,7 +298,38 @@ const Game = ({ token }) => {
         </div>
       </div>
       <div className="game_reviews">
-        <h1>Rewiews</h1>
+        <h1>
+          Rewiews{" "}
+          <span className="game_reviews_count">{gameRewiews.length}</span>
+        </h1>
+
+        {gameRewiews.length > 0 && <h2>Most relevant review</h2>}
+        {displayWriteReview && (
+          <WriteAReview
+            getGameReviewList={getGameReviewList}
+            gameId={id}
+            setDisplayWriteReview={setDisplayWriteReview}
+            gameName={data.message.name}
+          />
+        )}
+        {gameRewiews.length > 0 ? (
+          <div className="reviews">
+            {gameRewiews.map((elem) => {
+              return (
+                <Review
+                  token={token}
+                  getUserRatingList={getUserRatingList}
+                  userRatings={userRatings}
+                  key={elem.id}
+                  reviewData={elem}
+                  getGameReviewList={getGameReviewList}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <h5 className="no_review">No review for this game !</h5>
+        )}
       </div>
     </div>
   );

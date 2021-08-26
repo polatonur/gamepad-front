@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faTimes,
+  faTrash,
   faBookmark,
   faComment,
   faUser,
@@ -17,6 +19,12 @@ import {
   faAngleRight,
   faUpload,
   faSignOutAlt,
+  faThumbsUp,
+  faThumbsDown,
+  faCamera,
+  faEdit,
+  faEyeSlash,
+  faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import Home from "./containers/Home";
 import Header from "./components/Header";
@@ -25,10 +33,18 @@ import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import Game from "./containers/Game";
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MyCollection from "./containers/MyCollection";
+import axios from "axios";
+import MyProfile from "./containers/MyProfile";
 
 library.add(
+  faEyeSlash,
+  faEye,
+  faEdit,
+  faCamera,
+  faTimes,
+  faTrash,
   faUpload,
   faBookmark,
   faComment,
@@ -38,19 +54,45 @@ library.add(
   faAngleDoubleRight,
   faAngleLeft,
   faAngleRight,
-  faSignOutAlt
+  faSignOutAlt,
+  faThumbsUp,
+  faThumbsDown
 );
 
 const App = () => {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
+  const [userCollection, setUserCollection] = useState("");
+
+  const getCollectionList = async () => {
+    const id = Cookies.get("userId");
+    const token = Cookies.get("userToken");
+    const response = await axios.get(
+      `http://localhost:5000/user/collection/get?id=${id}`,
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
+    );
+    setUserCollection(response.data.message);
+  };
+
+  console.log("user collection ====>", userCollection);
+  useEffect(() => {
+    if (token) {
+      getCollectionList();
+    }
+  }, [token]);
+
   const setUser = (token, username, avatar, id) => {
     console.log("setuser");
     console.log(`${id} ${token} ${username} ${avatar}`);
-    setToken(token);
     Cookies.set("userToken", token, { expires: 365 });
     Cookies.set("userName", username, { expires: 365 });
     Cookies.set("userAvatar", avatar, { expires: 365 });
     Cookies.set("userId", id, { expires: 365 });
+    getCollectionList(id);
+    setToken(token);
   };
 
   return (
@@ -61,10 +103,35 @@ const App = () => {
           <Home />
         </Route>
         <Route path="/game/:id">
-          <Game token={token} />
+          <Game
+            getCollectionList={getCollectionList}
+            userCollection={userCollection}
+            token={token}
+          />
         </Route>
         <Route path="/user/collection">
-          {token ? <MyCollection /> : <Redirect to="/login" />}
+          {token ? (
+            <MyCollection getCollectionList={getCollectionList} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { precedentPath: "/user/collection" },
+              }}
+            />
+          )}
+        </Route>
+        <Route path="/user/account">
+          {token ? (
+            <MyProfile setUser={setUser} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { precedentPath: "/user/account" },
+              }}
+            />
+          )}
         </Route>
         <Route path="/signup">
           <Signup setUser={setUser} />

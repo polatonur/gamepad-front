@@ -27,7 +27,7 @@ const Signup = ({ setUser }) => {
       formData.append("password", password);
       try {
         const response = await axios.post(
-          "http://localhost:5000/signup",
+          "http://localhost:5000/user/signup",
           formData
         );
         console.log(response.data);
@@ -37,8 +37,13 @@ const Signup = ({ setUser }) => {
         history.push("/");
         setMessage("");
       } catch (error) {
-        console.log(error.response.data.message);
-        setMessage(error.response.data.message);
+        console.log("error ===>", error);
+        if (error.response) {
+          if (error.response.data) {
+            console.log(error.response.data.message);
+            setMessage(error.response.data.message);
+          }
+        }
       }
     } else if (password !== confirmPassword) {
       setMessage("Password doesn't match");

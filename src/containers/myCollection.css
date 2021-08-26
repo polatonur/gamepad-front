@@ -1,9 +1,12 @@
 .my_collection {
   color: white;
   min-height: calc(100vh - 73px - 100px);
+  display: flex;
+  padding: 50px 30px 0;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 .my_collection .block_title {
-  padding-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,33 +31,53 @@
 }
 
 .collection {
-  width: 100%;
+  width: 1300px;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.collection a {
-  width: 250px;
-}
+
 .collection_card {
+  overflow: hidden;
   position: relative;
-  width: 95%;
+  width: 240px;
   height: 300px;
   background-color: tomato;
   margin-right: 20px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 10px white;
 }
-.collection_card:hover {
-  box-shadow: 0 0 10px var(--gamepad-red);
-  transform: scale(1.01);
+.collection_card .delete_block {
+  transition: all 0.3s ease 0.15s;
+  position: absolute;
+  display: none;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 15%;
+  background-color: rgb(44, 43, 43, 0.6);
+}
+.collection_card .delete_from_collection_icon {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 2;
+  cursor: pointer;
+}
+.collection_card .delete_from_collection_icon:hover {
+  transform: scale(1.5);
+}
+.collection_card:hover .delete_block {
+  display: block;
 }
 .collection_card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 .collection_card .card_text {
   position: absolute;
@@ -67,4 +90,11 @@
 }
 .collection_card .card_title {
   color: #fff;
+}
+.collection_card .bookmark_icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 2;
+  font-size: 30px;
 }

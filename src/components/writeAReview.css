@@ -1,0 +1,87 @@
+.write_a_review {
+  top: 0;
+  left: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(46, 46, 46, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.write_a_review_block {
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #424448;
+  width: 850px;
+  position: relative;
+}
+.write_a_review_close_icon {
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.5rem;
+  top: 20px;
+  right: 20px;
+  color: chocolate;
+}
+.write_a_review_close_icon:hover {
+  transform: scale(1.2);
+}
+.write_a_review_block form {
+  font-family: "Exo";
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.write_a_review_block h1 {
+  color: #fff;
+  font-size: 32px;
+  line-height: 30px;
+  padding-top: 20px;
+  font-family: "Exo";
+  z-index: 10;
+}
+.write_a_review_block h1 > span {
+  color: chocolate;
+  text-decoration: underlined;
+  text-decoration-color: (--gamepad-red);
+}
+.write_a_review_block form > span {
+  padding-top: 20px;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.write_a_review_block form input {
+  text-overflow: clip;
+  width: 100%;
+  height: 30px;
+  outline: none;
+  font-size: 1rem;
+  padding: 4px;
+}
+.write_a_review_block form textarea {
+  text-overflow: clip;
+  resize: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  padding: 4px;
+}
+
+.write_a_review_block form button {
+  align-self: flex-end;
+  margin-top: 20px;
+  background-color: var(--gamepad-red);
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 21px;
+  font-family: "Exo", sans-serif;
+  border: none;
+}

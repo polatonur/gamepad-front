@@ -1,0 +1,68 @@
+.my-profile main .profile-photo .avatar-settings {
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+  color: #000;
+  right: 0px;
+  top: 40px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+}
+.my-profile main .profile-photo .avatar-settings:hover {
+  transform: scale(1.2);
+}
+.my-profile main .profile-photo .menu-avatar-settings {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+  background-color: rgb(223, 218, 217);
+  position: absolute;
+  display: none;
+  /* overflow: hidden; */
+  left: 200px;
+  bottom: 110px;
+  border: solid 1px rgb(240, 240, 240);
+}
+.my-profile main .profile-photo .no-photo {
+  border: 2px solid rgb(251, 251, 251);
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--gamepad-red);
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -100px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.menu-avatar-settings-close-icon {
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  cursor: pointer;
+}
+.my-profile main .profile-photo .menu-avatar-settings label {
+  color: #000;
+  width: 100%;
+  font: 1em sans-serif;
+  line-height: 25px;
+  border: none;
+  height: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.my-profile main .profile-photo .menu-avatar-settings label:hover {
+  background-color: rgb(104, 99, 99);
+}
+
+.my-profile main .profile-photo .avatar-settings input {
+  display: none;
+  border: none;
+}

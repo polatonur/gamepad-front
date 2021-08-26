@@ -1,0 +1,98 @@
+.reviews {
+  width: 100%;
+}
+.review {
+  box-sizing: border-box;
+  background-color: #2a2b2e;
+  padding: 20px 20px 10px;
+  width: 100%;
+  margin: 20px;
+  border-radius: 10px;
+}
+.game_reviews .reviews > div:first-child {
+  border: 3px solid var(--gamepad-red);
+}
+.review h3,
+.review p {
+  color: white;
+  margin-bottom: 10px;
+}
+.review p {
+  margin-bottom: 20px;
+  color: grey;
+}
+.review h3 {
+  text-underline-offset: 3px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  line-height: 20px;
+  font-weight: bold;
+}
+.review .writer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.review .writer .col-1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.review .writer .col-1 .writer-name {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+.review .writer .col-1 .writer-name span:first-child {
+  font-size: 11px;
+  margin-bottom: 5px;
+  color: gray;
+}
+.review .writer .col-1 .writer-name span:last-child {
+  font-size: 1.2rem;
+}
+.review .writer .col-1 .writer-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.review .writer .col-1 .writer-photo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review .writer .col-2 {
+  padding-right: 30px;
+  position: relative;
+}
+.review .writer .col-2 .icon-like {
+  cursor: pointer;
+  margin-left: 30px;
+  font-size: 1rem;
+  color: gray;
+}
+.review .writer .col-2 .icon-like:hover {
+  color: green;
+}
+.review .writer .col-2 .icon-like:first-child:hover {
+  color: red;
+}
+.review .writer .rating-note-neg {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  color: red;
+}
+
+.review .writer .rating-note-poz {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  color: green;
+}
+/*.writer .review .writer; */

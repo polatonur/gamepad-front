@@ -31,7 +31,7 @@ const Home = () => {
           genres: type,
           parent_platforms: platform,
         };
-        const response = await axios.get("http://localhost:5000/games", {
+        const response = await axios.get("http://localhost:5000/game/all", {
           params: params,
         });
         console.log(response.data.message);
@@ -69,6 +69,13 @@ const Home = () => {
       countString = data.message.count.toString();
     }
   }
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setActivePage(1);
+    setSearchButtonTriggered(!searchButtonTriggered);
+    setIsSearchActive(true);
+  };
   return isLoading ? (
     // <div style={{ color: "white" }}>Loading...</div>
     <ActivityIndicator />
@@ -76,23 +83,20 @@ const Home = () => {
     <div className="home container">
       <section className="home_hero">
         <img src={mainLogo} alt="gamepad" />
-        <div className="hero_search_block">
+        <form
+          onSubmit={(event) => handleSearch(event)}
+          className="hero_search_block"
+        >
           <input
             value={searhedText}
             onChange={(event) => setSearchedText(event.target.value)}
             type="search"
             placeholder="Search for a game"
           />
-          <FontAwesomeIcon
-            onClick={() => {
-              setActivePage(1);
-              setSearchButtonTriggered(!searchButtonTriggered);
-              setIsSearchActive(true);
-            }}
-            className="search-icon"
-            icon="search"
-          />
-        </div>
+          <button type="submit">
+            <FontAwesomeIcon className="search-icon" icon="search" />
+          </button>
+        </form>
         {isSearchActive && (
           <h2 className="searchTextBlock">
             Search result for <span>"{fullSearchedText}"</span>{" "}

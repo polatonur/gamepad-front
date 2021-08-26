@@ -17,8 +17,17 @@
   color: rgb(223, 223, 217);
   margin: 10px;
 }
-
+.pagination .page-number-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 30px;
+  height: 30px;
+}
 .pagination .page-number {
+  display: flex;
+  line-height: 30px;
   cursor: pointer;
   margin: 10px;
   color: rgb(223, 223, 217);
