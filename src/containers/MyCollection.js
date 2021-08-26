@@ -15,7 +15,7 @@ const MyCollection = ({ getCollectionList }) => {
       const id = Cookies.get("userId");
       const token = Cookies.get("userToken");
       const response = await axios.get(
-        `http://localhost:5000/user/collection/get?id=${id}&page=${activePage}`,
+        `https://gamepad-clone.herokuapp.com/user/collection/get?id=${id}&page=${activePage}`,
         {
           headers: {
             authorization: "Bearer " + token,
@@ -34,7 +34,7 @@ const MyCollection = ({ getCollectionList }) => {
     const token = Cookies.get("userToken");
     try {
       const response = await axios.put(
-        "http://localhost:5000/user/collection/update",
+        "https://gamepad-clone.herokuapp.com/user/collection/update",
         {
           gameData,
           id,

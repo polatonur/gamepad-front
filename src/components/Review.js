@@ -28,7 +28,7 @@ const Review = ({
     const token = Cookies.get("userToken");
     try {
       const response = await axios.put(
-        "http://localhost:5000/game/review/rating",
+        "https://gamepad-clone.herokuapp.com/game/review/rating",
         {
           gameId: reviewData.game_id,
           reviewId: reviewData._id,

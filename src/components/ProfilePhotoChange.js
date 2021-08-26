@@ -36,19 +36,6 @@ const ProfilePhotoChange = ({
         />
         <FontAwesomeIcon icon="camera" />
       </label>
-
-      {/* <FontAwesomeIcon
-        onClick={() => setDisplayChangePhotoMenu(!displayChangePhotoMenu)}
-        className="avatar-settings"
-        icon="camera"
-      /> */}
-      {/* ) : (
-        <FontAwesomeIcon
-          onClick={() => setDisplayChangePhotoMenu(false)}
-          icon="times"
-          className="avatar-settings"
-        />
-      )} */}
       <div
         style={{ display: displayChangePhotoMenu && "flex" }}
         className="menu-avatar-settings"

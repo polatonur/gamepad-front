@@ -24,7 +24,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
   const getGameReviewList = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/game/reviews/get/${id}`
+        `https://gamepad-clone.herokuapp.com/game/reviews/get/${id}`
       );
       console.log(response.data.message);
 
@@ -43,7 +43,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     try {
       const userId = Cookies.get("userId");
       const response = await axios.get(
-        `http://localhost:5000/user/ratings/get?id=${userId}`
+        `https://gamepad-clone.herokuapp.com/user/ratings/get?id=${userId}`
       );
       console.log("getUserRatingList==>", response.data);
       setUserRatings(response.data);
@@ -55,7 +55,9 @@ const Game = ({ token, getCollectionList, userCollection }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response1 = await axios.get(`http://localhost:5000/game/${id}`);
+        const response1 = await axios.get(
+          `https://gamepad-clone.herokuapp.com/game/${id}`
+        );
         // console.log(response1.data);
         setData(response1.data);
         getGameReviewList();
@@ -65,16 +67,16 @@ const Game = ({ token, getCollectionList, userCollection }) => {
               page_size: 6,
               ordering: "relavance",
               search: response1.data.message.name,
-              genres: response1.data.message.genres[0].slug,
+              genres: "0",
             };
             const response2 = await axios.get(
-              "http://localhost:5000/game/all",
+              "https://gamepad-clone.herokuapp.com/game/all",
               {
                 params: params,
               }
             );
             const results = response2.data.message.results;
-            console.log();
+            console.log("games like===>", response2);
             let counter = 0;
             const newResults = [];
             for (let i = 0; i < results.length; i++) {
@@ -116,7 +118,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     const operation = "add";
     try {
       const response = await axios.put(
-        "http://localhost:5000/user/collection/update",
+        "https://gamepad-clone.herokuapp.com/user/collection/update",
         {
           gameData,
           id,

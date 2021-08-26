@@ -67,7 +67,7 @@ const App = () => {
     const id = Cookies.get("userId");
     const token = Cookies.get("userToken");
     const response = await axios.get(
-      `http://localhost:5000/user/collection/get?id=${id}`,
+      `https://gamepad-clone.herokuapp.com/user/collection/get?id=${id}`,
       {
         headers: {
           authorization: "Bearer " + token,

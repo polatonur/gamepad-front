@@ -19,6 +19,10 @@ const Home = () => {
   const [searchButtonTriggered, setSearchButtonTriggered] = useState(true);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [fullSearchedText, setFullSearchedText] = useState("");
+  const [displayAutocomplateBlock, setDisplayAutocomplateBlock] =
+    useState(false);
+  const [autocomplateResults, setAutocomplateResults] = useState([]);
+
   let countString = "";
   useEffect(() => {
     const fetchData = async () => {
@@ -31,12 +35,16 @@ const Home = () => {
           genres: type,
           parent_platforms: platform,
         };
-        const response = await axios.get("http://localhost:5000/game/all", {
-          params: params,
-        });
+        const response = await axios.get(
+          "https://gamepad-clone.herokuapp.com/game/all",
+          {
+            params: params,
+          }
+        );
         console.log(response.data.message);
         setData(response.data);
         setFullSearchedText(searhedText);
+        setDisplayAutocomplateBlock(false);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -54,6 +62,33 @@ const Home = () => {
       setType("0");
       setIsSearchActive(false);
       setSearchedText("");
+      setDisplayAutocomplateBlock(false);
+    } else {
+      const fetchData = async () => {
+        try {
+          const params = {
+            page: 1,
+            page_size: 10,
+            ordering: "relavance",
+            search: searhedText,
+            genres: "0",
+            parent_platforms: "0",
+          };
+          const response = await axios.get(
+            "https://gamepad-clone.herokuapp.com/game/all",
+            {
+              params: params,
+            }
+          );
+          console.log(response.data.message);
+          setAutocomplateResults(response.data.message.results);
+          console.log("AutocomplateResults", response.data.message.results);
+          setFullSearchedText(searhedText);
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
+      fetchData();
     }
   }, [searhedText]);
 
@@ -76,6 +111,14 @@ const Home = () => {
     setSearchButtonTriggered(!searchButtonTriggered);
     setIsSearchActive(true);
   };
+
+  const handleAutocomplateSearch = (text) => {
+    setSearchedText(text);
+    setActivePage(1);
+    setSearchButtonTriggered(!searchButtonTriggered);
+    setIsSearchActive(true);
+    setDisplayAutocomplateBlock(false);
+  };
   return isLoading ? (
     // <div style={{ color: "white" }}>Loading...</div>
     <ActivityIndicator />
@@ -84,18 +127,53 @@ const Home = () => {
       <section className="home_hero">
         <img src={mainLogo} alt="gamepad" />
         <form
+          style={{ borderRadius: displayAutocomplateBlock && "20px 20px 0 0 " }}
           onSubmit={(event) => handleSearch(event)}
           className="hero_search_block"
         >
           <input
+            className="hero_search_block_input"
             value={searhedText}
-            onChange={(event) => setSearchedText(event.target.value)}
+            onChange={(event) => {
+              setSearchedText(event.target.value);
+              setDisplayAutocomplateBlock(true);
+            }}
             type="search"
             placeholder="Search for a game"
           />
           <button type="submit">
             <FontAwesomeIcon className="search-icon" icon="search" />
           </button>
+          {displayAutocomplateBlock && (
+            <div className="autocomplate">
+              {autocomplateResults.length > 0 ? (
+                <>
+                  {autocomplateResults.map((elem, index) => {
+                    return (
+                      <p
+                        key={index}
+                        onClick={() => handleAutocomplateSearch(elem.name)}
+                      >
+                        <span>
+                          <span>
+                            {" "}
+                            <img src={elem.background_image} alt={elem.name} />
+                          </span>
+                          <p>{elem.name}</p>
+                        </span>
+                        <FontAwesomeIcon
+                          className="search-icon"
+                          icon="search"
+                        />
+                      </p>
+                    );
+                  })}
+                </>
+              ) : (
+                <p>No rusults !</p>
+              )}
+            </div>
+          )}
         </form>
         {isSearchActive && (
           <h2 className="searchTextBlock">
@@ -103,7 +181,7 @@ const Home = () => {
           </h2>
         )}
         <h4>
-          {!searhedText && "Search for"} {countString} games
+          {!isSearchActive && "Search for"} {countString} games
         </h4>
       </section>
       <section className="home_main">

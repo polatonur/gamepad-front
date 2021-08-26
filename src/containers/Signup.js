@@ -27,7 +27,7 @@ const Signup = ({ setUser }) => {
       formData.append("password", password);
       try {
         const response = await axios.post(
-          "http://localhost:5000/user/signup",
+          "https://gamepad-clone.herokuapp.com/user/signup",
           formData
         );
         console.log(response.data);

@@ -20,7 +20,7 @@ const WriteAReview = ({
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/game/reviews/add/${gameId}`,
+        `https://gamepad-clone.herokuapp.com/game/reviews/add/${gameId}`,
         {
           reviewTitle,
           reviewText,

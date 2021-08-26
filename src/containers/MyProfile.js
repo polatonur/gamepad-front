@@ -30,7 +30,7 @@ const MyProfile = ({ setUser }) => {
       const id = Cookies.get("userId");
       const token = Cookies.get("userToken");
       const response = await axios.get(
-        `http://localhost:5000/user/account?id=${id}`,
+        `https://gamepad-clone.herokuapp.com/user/account?id=${id}`,
         {
           headers: {
             authorization: "Bearer " + token,
@@ -67,7 +67,7 @@ const MyProfile = ({ setUser }) => {
       formData.append("userId", userId);
 
       const response = await axios.put(
-        "http://localhost:5000/user/account/update",
+        "https://gamepad-clone.herokuapp.com/user/account/update",
         formData,
         {
           headers: {
@@ -89,7 +89,7 @@ const MyProfile = ({ setUser }) => {
     try {
       const userId = Cookies.get("userId");
       const response = await axios.delete(
-        `http://localhost:5000/game/review/delete?reviewId=${id}&userId=${userId}`
+        `https://gamepad-clone.herokuapp.com/game/review/delete?reviewId=${id}&userId=${userId}`
       );
       setUserReviews(response.data.userReviews);
     } catch (error) {

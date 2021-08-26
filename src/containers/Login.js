@@ -26,10 +26,13 @@ const Login = ({ setUser }) => {
     setSending(true);
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/user/login", {
-        password,
-        email,
-      });
+      const response = await axios.post(
+        "https://gamepad-clone.herokuapp.com/user/login",
+        {
+          password,
+          email,
+        }
+      );
       console.log(response.data);
       const { token, username, avatar, _id } = response.data.message;
       setUser(token, username, avatar, _id);
