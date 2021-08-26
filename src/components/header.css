@@ -26,6 +26,10 @@ header {
   display: flex;
   align-items: center;
 }
+.header nav a {
+  margin-left: 10px;
+  width: max-content;
+}
 .header nav button {
   background-color: var(--gamepad-red);
   border-radius: 10px;
@@ -35,7 +39,6 @@ header {
   line-height: 21px;
   font-family: "Exo", sans-serif;
   border: none;
-  margin-left: 15px;
 }
 header nav .header_link_1 {
   color: #fff;
@@ -91,5 +94,6 @@ nav div {
   align-items: center;
 }
 header nav div .logout_btn {
-  background-color: black;
+  margin-left: 5px;
+  background-color: rgb(6, 6, 6, 0.1);
 }

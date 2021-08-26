@@ -21,7 +21,6 @@ const Header = ({ token, setToken }) => {
         </Link>
         {!token ? (
           <div className="token_no">
-            (
             <Link to="/login">
               <button className="header_link_2">Login</button>
             </Link>

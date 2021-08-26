@@ -149,7 +149,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
   }
 
   return isLoading ? (
-    <ActivityIndicator />
+    <ActivityIndicator height={"771px"} />
   ) : (
     <div className="game container">
       <div className="game_details">

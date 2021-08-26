@@ -12,9 +12,11 @@ const ProfilePhotoChange = ({
 }) => {
   const [newPhotoLocalUri, setNewPhotoLocalUri] = useState();
   const handleChangePhoto = (event) => {
-    setPhoto(event.target.files[0]);
-    setNewPhoto(true);
-    setNewPhotoLocalUri(URL.createObjectURL(event.target.files[0]));
+    if (event.target.files.length !== 0) {
+      setPhoto(event.target.files[0]);
+      setNewPhoto(true);
+      setNewPhotoLocalUri(URL.createObjectURL(event.target.files[0]));
+    }
   };
 
   return (

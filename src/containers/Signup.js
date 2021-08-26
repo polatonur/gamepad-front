@@ -144,7 +144,7 @@ const Signup = ({ setUser }) => {
             </div>
             <section className="message_block">
               {sending ? (
-                <p> ... </p>
+                <ActivityIndicator />
               ) : (
                 message && <h5 className="message">{message}</h5>
               )}

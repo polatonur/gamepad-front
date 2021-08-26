@@ -119,115 +119,123 @@ const Home = () => {
     setIsSearchActive(true);
     setDisplayAutocomplateBlock(false);
   };
-  return isLoading ? (
-    // <div style={{ color: "white" }}>Loading...</div>
-    <ActivityIndicator />
-  ) : (
+  return (
     <div className="home container">
-      <section className="home_hero">
-        <img src={mainLogo} alt="gamepad" />
-        <form
-          style={{ borderRadius: displayAutocomplateBlock && "20px 20px 0 0 " }}
-          onSubmit={(event) => handleSearch(event)}
-          className="hero_search_block"
-        >
-          <input
-            className="hero_search_block_input"
-            value={searhedText}
-            onChange={(event) => {
-              setSearchedText(event.target.value);
-              setDisplayAutocomplateBlock(true);
-            }}
-            type="search"
-            placeholder="Search for a game"
-          />
-          <button type="submit">
-            <FontAwesomeIcon className="search-icon" icon="search" />
-          </button>
-          {displayAutocomplateBlock && (
-            <div className="autocomplate">
-              {autocomplateResults.length > 0 ? (
-                <>
-                  {autocomplateResults.map((elem, index) => {
-                    return (
-                      <p
-                        key={index}
-                        onClick={() => handleAutocomplateSearch(elem.name)}
-                      >
-                        <span>
-                          <span>
-                            {" "}
-                            <img src={elem.background_image} alt={elem.name} />
-                          </span>
-                          <p>{elem.name}</p>
-                        </span>
-                        <FontAwesomeIcon
-                          className="search-icon"
-                          icon="search"
-                        />
-                      </p>
-                    );
-                  })}
-                </>
+      {isLoading ? (
+        <ActivityIndicator height={"771px"} />
+      ) : (
+        <>
+          <section className="home_hero">
+            <img src={mainLogo} alt="gamepad" />
+            <form
+              style={{
+                borderRadius: displayAutocomplateBlock && "20px 20px 0 0 ",
+              }}
+              onSubmit={(event) => handleSearch(event)}
+              className="hero_search_block"
+            >
+              <input
+                className="hero_search_block_input"
+                value={searhedText}
+                onChange={(event) => {
+                  setSearchedText(event.target.value);
+                  setDisplayAutocomplateBlock(true);
+                }}
+                type="search"
+                placeholder="Search for a game"
+              />
+              <button type="submit">
+                <FontAwesomeIcon className="search-icon" icon="search" />
+              </button>
+              {displayAutocomplateBlock && (
+                <div className="autocomplate">
+                  {autocomplateResults.length > 0 ? (
+                    <>
+                      {autocomplateResults.map((elem, index) => {
+                        return (
+                          <p
+                            key={index}
+                            onClick={() => handleAutocomplateSearch(elem.name)}
+                          >
+                            <span>
+                              <span>
+                                {" "}
+                                <img
+                                  src={elem.background_image}
+                                  alt={elem.name}
+                                />
+                              </span>
+                              <p>{elem.name}</p>
+                            </span>
+                            <FontAwesomeIcon
+                              className="search-icon"
+                              icon="search"
+                            />
+                          </p>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <p>No rusults !</p>
+                  )}
+                </div>
+              )}
+            </form>
+            {isSearchActive && (
+              <h2 className="searchTextBlock">
+                Search result for <span>"{fullSearchedText}"</span>{" "}
+              </h2>
+            )}
+            <h4>
+              {!isSearchActive && "Search for"} {countString} games
+            </h4>
+          </section>
+          <section className="home_main">
+            <div className="main_title_block">
+              {!isSearchActive ? (
+                <h1>Most Relevance Games</h1>
               ) : (
-                <p>No rusults !</p>
+                data.message.count !== 0 && (
+                  <HomeFilter
+                    searchButtonTriggered={searchButtonTriggered}
+                    setSearchButtonTriggered={setSearchButtonTriggered}
+                    setActivePage={setActivePage}
+                    setPlatform={setPlatform}
+                    setSortBy={setSortBy}
+                    setType={setType}
+                  />
+                )
               )}
             </div>
+            <div className="main_cards">
+              {data.message.results.map((elem) => {
+                return (
+                  <Link
+                    key={elem.id}
+                    to={{
+                      pathname: `/game/${elem.id}`,
+                      state: { name: elem.name },
+                    }}
+                  >
+                    <div className="card">
+                      <img src={elem.background_image} alt={elem.name} />
+                      <div className="card_text">
+                        <h6 className="card_title">{elem.name}</h6>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+          {data.message.count !== 0 && (
+            <Pagination
+              count={data.message.count}
+              activePage={activePage}
+              setActivePage={setActivePage}
+            />
           )}
-        </form>
-        {isSearchActive && (
-          <h2 className="searchTextBlock">
-            Search result for <span>"{fullSearchedText}"</span>{" "}
-          </h2>
-        )}
-        <h4>
-          {!isSearchActive && "Search for"} {countString} games
-        </h4>
-      </section>
-      <section className="home_main">
-        <div className="main_title_block">
-          {!isSearchActive ? (
-            <h1>Most Relevance Games</h1>
-          ) : (
-            data.message.count !== 0 && (
-              <HomeFilter
-                searchButtonTriggered={searchButtonTriggered}
-                setSearchButtonTriggered={setSearchButtonTriggered}
-                setActivePage={setActivePage}
-                setPlatform={setPlatform}
-                setSortBy={setSortBy}
-                setType={setType}
-              />
-            )
-          )}
-        </div>
-        <div className="main_cards">
-          {data.message.results.map((elem) => {
-            return (
-              <Link
-                key={elem.id}
-                to={{
-                  pathname: `/game/${elem.id}`,
-                  state: { name: elem.name },
-                }}
-              >
-                <div className="card">
-                  <img src={elem.background_image} alt={elem.name} />
-                  <div className="card_text">
-                    <h6 className="card_title">{elem.name}</h6>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-      {data.message.count !== 0 && (
-        <Pagination
-          count={data.message.count}
-          activePage={activePage}
-          setActivePage={setActivePage}
-        />
+        </>
       )}
     </div>
   );

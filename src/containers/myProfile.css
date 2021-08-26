@@ -1,5 +1,6 @@
 .my-profile {
   padding: 0 30px 40px;
+  box-sizing: border-box;
   padding-top: 150px;
   color: white;
   display: flex;
@@ -76,13 +77,13 @@
 .my-profile main form button {
   background-color: var(--gamepad-red);
   border-radius: 10px;
-  width: 300px;
+  width: 298px;
   color: #fff;
   font-size: 16px;
   height: 40px;
   font-family: "Exo", sans-serif;
   border: none;
-  margin-left: 195px;
+  margin-left: 179px;
 }
 .my-profile .user-review-list h1 {
   position: relative;

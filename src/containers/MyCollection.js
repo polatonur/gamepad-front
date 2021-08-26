@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Pagination from "../components/Pagination";
+import ActivityIndicator from "../components/ActivityIndicator";
 
 const MyCollection = ({ getCollectionList }) => {
   const [data, setData] = useState("");
@@ -64,7 +65,7 @@ const MyCollection = ({ getCollectionList }) => {
         <h1>My Collection</h1>
       </section>
       {isLoading ? (
-        <span>Loading ...</span>
+        <ActivityIndicator height={"771px"} />
       ) : (
         <section className="collection">
           {data.results.map((elem) => {
@@ -91,15 +92,15 @@ const MyCollection = ({ getCollectionList }) => {
               </div>
             );
           })}
+          {data.count > 15 && (
+            <Pagination
+              perPage={15}
+              count={data.count}
+              setActivePage={setActivePage}
+              activePage={activePage}
+            />
+          )}
         </section>
-      )}
-      {data.count > 15 && (
-        <Pagination
-          perPage={15}
-          count={data.count}
-          setActivePage={setActivePage}
-          activePage={activePage}
-        />
       )}
     </div>
   );

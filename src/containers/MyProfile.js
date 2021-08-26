@@ -99,7 +99,7 @@ const MyProfile = ({ setUser }) => {
   };
 
   return isLoading ? (
-    <ActivityIndicator />
+    <ActivityIndicator height={"771px"} />
   ) : (
     <div className="my-profile container">
       <main>
