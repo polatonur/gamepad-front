@@ -97,7 +97,11 @@ const App = () => {
 
   return (
     <Router>
-      <Header token={token} setToken={setToken} />
+      <Header
+        token={token}
+        setToken={setToken}
+        setUserCollection={setUserCollection}
+      />
       <Switch>
         <Route exact path="/">
           <Home />

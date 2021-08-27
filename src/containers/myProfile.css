@@ -150,7 +150,8 @@
   justify-content: space-between;
 }
 .my-profile .user-review span {
-  color: grey;
+  color: rgb(230, 230, 230);
+  text-decoration: underline;
 }
 .my-profile .user-review-date {
   display: flex;

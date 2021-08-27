@@ -8,6 +8,7 @@ import ActivityIndicator from "../components/ActivityIndicator";
 import Cookies from "js-cookie";
 import WriteAReview from "../components/WriteAReview";
 import Review from "../components/Review";
+import logo from "../assets/img/logo_header.png";
 
 const Game = ({ token, getCollectionList, userCollection }) => {
   const [data, setData] = useState();
@@ -190,7 +191,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
                     : history.push({
                         pathname: "/login",
                         state: {
-                          precedentPath: "/game/" + data.message.sid,
+                          precedentPath: "/game/" + data.message.id,
                         },
                       });
                 }}
@@ -289,7 +290,10 @@ const Game = ({ token, getCollectionList, userCollection }) => {
                 }}
               >
                 <div key={elem.id} className="game_like_ame_cards_card">
-                  <img src={elem.background_image} alt={elem.name} />
+                  <img
+                    src={elem.background_image ? elem.background_image : logo}
+                    alt={elem.name}
+                  />
                   <div className="card_text">
                     <h6 className="card_title">{elem.name}</h6>
                   </div>

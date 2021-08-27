@@ -233,6 +233,7 @@ const Home = () => {
               count={data.message.count}
               activePage={activePage}
               setActivePage={setActivePage}
+              perPage={20}
             />
           )}
         </>

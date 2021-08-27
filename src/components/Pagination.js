@@ -3,7 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pagination = ({ count, activePage, setActivePage, perPage }) => {
   let pages = [];
+  console.log("pagination count avant====>", count);
   count = Math.ceil(count / perPage);
+  console.log(perPage);
+  console.log("pagination count apres====>", count);
+
+  console.log();
   if (count === 1) {
     pages = [1];
   } else if (count === 2) {

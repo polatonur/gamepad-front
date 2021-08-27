@@ -48,7 +48,9 @@ const Signup = ({ setUser }) => {
     } else if (password !== confirmPassword) {
       setMessage("Password doesn't match");
     }
-    setSending(false);
+    setTimeout(() => {
+      setSending(false);
+    }, 3000);
   };
 
   return (

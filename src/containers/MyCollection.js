@@ -92,15 +92,15 @@ const MyCollection = ({ getCollectionList }) => {
               </div>
             );
           })}
-          {data.count > 15 && (
-            <Pagination
-              perPage={15}
-              count={data.count}
-              setActivePage={setActivePage}
-              activePage={activePage}
-            />
-          )}
         </section>
+      )}
+      {data.count > 15 && (
+        <Pagination
+          perPage={15}
+          count={data.count}
+          setActivePage={setActivePage}
+          activePage={activePage}
+        />
       )}
     </div>
   );

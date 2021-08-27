@@ -62,6 +62,9 @@ header nav .username {
   font-family: "Exo", sans-serif;
   margin-left: 10px;
 }
+header nav .username:hover {
+  text-decoration: underline;
+}
 header nav .profile_photo {
   display: flex;
   justify-content: center;

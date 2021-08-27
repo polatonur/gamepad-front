@@ -206,7 +206,7 @@ const MyProfile = ({ setUser }) => {
                     Game : <span>{elem.name}</span>{" "}
                   </span>
                   <span>
-                    <FontAwesomeIcon className="user-review-icon" icon="edit" />{" "}
+                    {/* <FontAwesomeIcon className="user-review-icon" icon="edit" />{" "} */}
                     <FontAwesomeIcon
                       onClick={() => handleDeleteReview(elem._id)}
                       className="user-review-icon"

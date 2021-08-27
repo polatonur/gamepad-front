@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/img/logo_header.png";
 import "./header.css";
 
-const Header = ({ token, setToken }) => {
+const Header = ({ token, setToken, setUserCollection }) => {
   // console.log(token);
   // console.log(Cookies.get("userName"));
   return (
@@ -30,7 +30,10 @@ const Header = ({ token, setToken }) => {
           </div>
         ) : (
           <div className="token_ok">
-            <span className="username">{Cookies.get("userName")}</span>
+            <Link to="/user/account/">
+              {" "}
+              <span className="username">{Cookies.get("userName")}</span>
+            </Link>
             <Link to="/user/account/">
               <div className="profile_photo">
                 {Cookies.get("userAvatar") !== "undefined" ? (
@@ -40,7 +43,13 @@ const Header = ({ token, setToken }) => {
                 )}
               </div>
             </Link>
-            <button className="logout_btn" onClick={() => setToken(null)}>
+            <button
+              className="logout_btn"
+              onClick={() => {
+                setToken(null);
+                setUserCollection("");
+              }}
+            >
               <FontAwesomeIcon icon="sign-out-alt" />
             </button>
           </div>

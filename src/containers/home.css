@@ -40,7 +40,7 @@
   overflow: hidden;
 }
 .home .home_hero .hero_search_block .autocomplate p {
-  height: 30px;
+  height: 35px;
   display: flex;
   justify-content: space-between;
   padding: 0 20px 0 10px;
@@ -79,6 +79,9 @@
   height: 100%;
   overflow: hidden;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home .home_hero .hero_search_block input {
@@ -110,12 +113,17 @@
   background-color: #404040;
   border-radius: 0 20px 20px 0;
 }
+
 .home .home_hero .hero_search_block .search-icon {
   height: 20px;
   width: 20px;
   top: 20px;
   right: 20px;
   color: #bbb;
+}
+.home .home_hero .hero_search_block .autocomplate .search-icon {
+  height: 15px;
+  width: 15px;
 }
 .home .home_hero .hero_search_block:focus {
   background-color: white;
