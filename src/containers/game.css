@@ -76,7 +76,7 @@
   cursor: pointer;
 }
 .game_details .game_info .info_col_2_line_1 > div:hover {
-  opacity: 70%;
+  background-color: rgb(95, 95, 95);
 }
 .game_details .game_info .info_col_2_line_1 span {
   margin-right: 5px;
