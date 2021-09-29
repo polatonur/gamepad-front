@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import "./menuMobile.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const MenuMobile = ({ token, setToken, setUserCollection }) => {
+const MenuMobile = ({ setToken, setUserCollection }) => {
   const [displayMenu, setDisplayMenu] = useState(false);
   return (
     <div className="menu-mobile">
