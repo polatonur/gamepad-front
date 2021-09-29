@@ -51,6 +51,7 @@ const Home = () => {
       }
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePage, searchButtonTriggered, isSearchActive]);
 
   /// This useEffect will check wheter searched text is empity or not

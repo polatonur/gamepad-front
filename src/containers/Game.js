@@ -103,6 +103,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     fetchData();
     getCollectionList();
     getUserRatingList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const handleSaveToCollection = async () => {
