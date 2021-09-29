@@ -1,5 +1,5 @@
 .signup {
-  min-height: 100vh;
+  height: calc(100vh - 75px - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,4 +161,45 @@
 .signup_block .message {
   color: red;
   font-size: 1.1rem;
+}
+
+@media (max-width: 900.98px) {
+  .signup .signup_block {
+    flex-direction: column;
+    height: 1200px;
+    align-items: center;
+    width: 100%;
+  }
+  .signup .signup_block > div {
+    padding: 30px;
+    width: 100%;
+  }
+  .signup .signup_block .col_1 {
+    height: 400px;
+    border-bottom: 2px solid var(--gamepad-red);
+    border-right: none;
+  }
+  .signup .signup_block .col_2 {
+    height: 480px;
+    padding: 20px 70px;
+  }
+  .signup .signup_block img {
+    display: none;
+  }
+}
+@media (max-width: 575.98px) {
+  .signup .signup_block {
+    justify-content: center;
+    background: linear-gradient(#0f0f0f, #37373b);
+  }
+  .signup .signup_block .col_1 {
+    display: none;
+  }
+  .signup .signup_block .col_2 {
+    height: 100%;
+  }
+  .signup .signup_block > div {
+    padding: 30px;
+    width: 100%;
+  }
 }

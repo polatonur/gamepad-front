@@ -11,8 +11,6 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
-  const [displayPassword, setDisplayPassword] = useState(false);
-  const [displayConfirmPassword, setDisplayConfirmPassword] = useState(false);
 
   const history = useHistory();
   const location = useLocation();
@@ -27,7 +25,7 @@ const Login = ({ setUser }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://gamepad-clone.herokuapp.com/user/login",
+        "https://gamepad-back.api.dotonur.dev/user/login",
         {
           password,
           email,

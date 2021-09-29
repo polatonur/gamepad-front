@@ -25,7 +25,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
   const getGameReviewList = async () => {
     try {
       const response = await axios.get(
-        `https://gamepad-clone.herokuapp.com/game/reviews/get/${id}`
+        `https://gamepad-back.api.dotonur.dev/game/reviews/get/${id}`
       );
       console.log(response.data.message);
 
@@ -44,7 +44,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     try {
       const userId = Cookies.get("userId");
       const response = await axios.get(
-        `https://gamepad-clone.herokuapp.com/user/ratings/get?id=${userId}`
+        `https://gamepad-back.api.dotonur.dev/user/ratings/get?id=${userId}`
       );
       console.log("getUserRatingList==>", response.data);
       setUserRatings(response.data);
@@ -57,7 +57,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     const fetchData = async () => {
       try {
         const response1 = await axios.get(
-          `https://gamepad-clone.herokuapp.com/game/${id}`
+          `https://gamepad-back.api.dotonur.dev/game/${id}`
         );
         // console.log(response1.data);
         setData(response1.data);
@@ -71,7 +71,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
               genres: "0",
             };
             const response2 = await axios.get(
-              "https://gamepad-clone.herokuapp.com/game/all",
+              "https://gamepad-back.api.dotonur.dev/game/all",
               {
                 params: params,
               }
@@ -120,7 +120,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     const operation = "add";
     try {
       const response = await axios.put(
-        "https://gamepad-clone.herokuapp.com/user/collection/update",
+        "https://gamepad-back.api.dotonur.dev/user/collection/update",
         {
           gameData,
           id,

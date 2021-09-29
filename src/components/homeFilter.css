@@ -27,7 +27,7 @@
   border: none;
   outline: none;
   background-color: rgb(95, 94, 94);
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
   height: 30px;
   color: white;
   margin-right: 20px;
@@ -37,7 +37,44 @@
 }
 .home_main .filter span {
   color: white;
-  background-color: rgb(95, 94, 94);
-  padding: 7px 5px;
+  padding: 6px 5px 8px;
   border-radius: 8px 0 0 8px;
+}
+@media (max-width: 900px) {
+  .home .home_main {
+    padding: 0 20px;
+  }
+  .filter {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .filter > div {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 520px) {
+  .home .home_main {
+    padding: 0 10px;
+  }
+  .home_main .filter {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0 10px 20px;
+  }
+  .home_main .filter > div {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3px;
+    flex-direction: column;
+  }
+  .filter p {
+    display: flex;
+    align-items: center;
+  }
+  .filter .filter_col_1 > p {
+    margin-bottom: 8px;
+  }
+  .filter .filter_col_2 > p {
+    margin-bottom: 8px;
+  }
 }

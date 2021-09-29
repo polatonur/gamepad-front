@@ -100,3 +100,15 @@ header nav div .logout_btn {
   margin-left: 5px;
   background-color: rgb(6, 6, 6, 0.1);
 }
+
+@media (max-width: 767.98px) {
+  .header nav {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .header {
+    padding: 0 10px;
+  }
+}

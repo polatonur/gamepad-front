@@ -83,7 +83,6 @@
   height: 40px;
   font-family: "Exo", sans-serif;
   border: none;
-  margin-left: 179px;
 }
 .my-profile .user-review-list h1 {
   position: relative;
@@ -177,4 +176,43 @@
   margin-top: 10px;
   color: rgb(243, 102, 102);
   font-weight: bold;
+}
+@media (max-width: 1400.98px) {
+  .my-profile main {
+    width: 900px;
+  }
+}
+@media (max-width: 920.98px) {
+  .my-profile main {
+    width: 100%;
+  }
+  .my-profile main form > p {
+    width: 100%;
+  }
+  .my-profile main .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+  .my-profile main .profile-photo img {
+    width: 150px;
+    height: 150px;
+    top: -75px;
+  }
+  .my-profile main .profile-photo .avatar-settings {
+    top: 40px;
+  }
+}
+@media (max-width: 700.98px) {
+}
+@media (max-width: 590.98px) {
+  .my-profile .user-review {
+    box-sizing: border-box;
+    margin: 20px 0;
+  }
+  .my-profile main form {
+    width: 98%;
+  }
+  .my-profile {
+    padding: 100px 0px 40px;
+  }
 }

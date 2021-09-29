@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-restricted-globals */
 import mainLogo from "../assets/img/logo.png";
 import "./home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +9,9 @@ import Pagination from "../components/Pagination";
 import HomeFilter from "../components/HomeFilter";
 import { Link } from "react-router-dom";
 import ActivityIndicator from "../components/ActivityIndicator";
+import windows from "../assets/img/Windows_logo.svg";
+import playstation from "../assets/img/PlayStation_logo.svg";
+import xbox from "../assets/img/Xbox_Logo.svg";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -22,21 +27,38 @@ const Home = () => {
   const [displayAutocomplateBlock, setDisplayAutocomplateBlock] =
     useState(false);
   const [autocomplateResults, setAutocomplateResults] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  console.log("width", windowWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      const { innerWidth } = window;
+      setWindowWidth(innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // eslint-disable-next-line no-restricted-globals
+  console.log(innerWidth);
 
   let countString = "";
   useEffect(() => {
     const fetchData = async () => {
+      console.log("pagesize", windowWidth > 990 ? 20 : 21);
       try {
         const params = {
           page: activePage,
-          page_size: 20,
+          page_size: windowWidth > 990 || windowWidth < 767.98 ? 20 : 21,
           ordering: sortBy,
           search: searhedText,
           genres: type,
           parent_platforms: platform,
         };
         const response = await axios.get(
-          "https://gamepad-clone.herokuapp.com/game/all",
+          "https://gamepad-back.api.dotonur.dev/game/all",
           {
             params: params,
           }
@@ -52,7 +74,7 @@ const Home = () => {
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePage, searchButtonTriggered, isSearchActive]);
+  }, [activePage, searchButtonTriggered, isSearchActive, windowWidth]);
 
   /// This useEffect will check wheter searched text is empity or not
   useEffect(() => {
@@ -76,7 +98,7 @@ const Home = () => {
             parent_platforms: "0",
           };
           const response = await axios.get(
-            "https://gamepad-clone.herokuapp.com/game/all",
+            "https://gamepad-back.api.dotonur.dev/game/all",
             {
               params: params,
             }
@@ -119,6 +141,20 @@ const Home = () => {
     setSearchButtonTriggered(!searchButtonTriggered);
     setIsSearchActive(true);
     setDisplayAutocomplateBlock(false);
+  };
+
+  const verifyPlatform = (game, platform) => {
+    if (game.parent_platforms) {
+      if (game.parent_platforms.length > 0) {
+        for (let i = 0; i < game.parent_platforms.length; i++) {
+          if (game.parent_platforms[i].platform.id === platform) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+    return false;
   };
   return (
     <div className="home container">
@@ -221,7 +257,27 @@ const Home = () => {
                     <div className="card">
                       <img src={elem.background_image} alt={elem.name} />
                       <div className="card_text">
+                        <p className="platform-icons">
+                          {verifyPlatform(elem, 1) && (
+                            <img src={windows} alt="" height="20" width="20" />
+                          )}
+                          {verifyPlatform(elem, 3) && (
+                            <img src={xbox} alt="" height="20" width="20" />
+                          )}
+                          {verifyPlatform(elem, 2) && (
+                            <img
+                              src={playstation}
+                              alt=""
+                              height="20"
+                              width="20"
+                            />
+                          )}
+                        </p>
                         <h6 className="card_title">{elem.name}</h6>
+                        <p style={{ fontWeight: 200 }}>
+                          <FontAwesomeIcon icon="bookmark" color="red" /> +
+                          {elem.added}
+                        </p>
                       </div>
                     </div>
                   </Link>

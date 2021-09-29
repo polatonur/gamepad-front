@@ -16,7 +16,7 @@ const MyCollection = ({ getCollectionList }) => {
       const id = Cookies.get("userId");
       const token = Cookies.get("userToken");
       const response = await axios.get(
-        `https://gamepad-clone.herokuapp.com/user/collection/get?id=${id}&page=${activePage}`,
+        `https://gamepad-back.api.dotonur.dev/user/collection/get?id=${id}&page=${activePage}`,
         {
           headers: {
             authorization: "Bearer " + token,
@@ -35,7 +35,7 @@ const MyCollection = ({ getCollectionList }) => {
     const token = Cookies.get("userToken");
     try {
       const response = await axios.put(
-        "https://gamepad-clone.herokuapp.com/user/collection/update",
+        "https://gamepad-back.api.dotonur.dev/user/collection/update",
         {
           gameData,
           id,
@@ -70,7 +70,7 @@ const MyCollection = ({ getCollectionList }) => {
         <section className="collection">
           {data.results.map((elem) => {
             return (
-              <div key={elem.id} className="collection_card">
+              <div key={elem._id} className="collection_card">
                 <FontAwesomeIcon
                   color="red"
                   className="bookmark_icon"

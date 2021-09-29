@@ -42,7 +42,7 @@ const Pagination = ({ count, activePage, setActivePage, perPage }) => {
           icon="angle-left"
         />
         {!(activePage === 1 || activePage === 2) && <span>. . .</span>}
-        {pages.map((elem, index) => {
+        {pages.map((elem) => {
           return (
             <span
               key={elem}

@@ -4,6 +4,8 @@ import Cookies from "js-cookie";
 import "./myProfile.css";
 import axios from "axios";
 import ActivityIndicator from "../components/ActivityIndicator";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
 import ProfilePhotoChange from "../components/ProfilePhotoChange";
 
 const MyProfile = ({ setUser }) => {
@@ -14,7 +16,6 @@ const MyProfile = ({ setUser }) => {
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [userReviews, setUserReviews] = useState("");
-  const [sending, setSending] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [photo, setPhoto] = useState("");
   const [displayChangePhotoMenu, setDisplayChangePhotoMenu] = useState(false);
@@ -30,7 +31,7 @@ const MyProfile = ({ setUser }) => {
       const id = Cookies.get("userId");
       const token = Cookies.get("userToken");
       const response = await axios.get(
-        `https://gamepad-clone.herokuapp.com/user/account?id=${id}`,
+        `https://gamepad-back.api.dotonur.dev/user/account?id=${id}`,
         {
           headers: {
             authorization: "Bearer " + token,
@@ -67,7 +68,7 @@ const MyProfile = ({ setUser }) => {
       formData.append("userId", userId);
 
       const response = await axios.put(
-        "https://gamepad-clone.herokuapp.com/user/account/update",
+        "https://gamepad-back.api.dotonur.dev/user/account/update",
         formData,
         {
           headers: {
@@ -85,11 +86,50 @@ const MyProfile = ({ setUser }) => {
     }
   };
 
+  const handleDeleteUser = async () => {
+    alertify.confirm("Closable: true").set("closable", true);
+    // alertify.confirm(
+    //   "Delete Account",
+    //   "Are you sure you want to delete tour account?"
+    // );
+    alertify.confirm(
+      "Delete Account",
+      "Are you sure you want to delete tour account?",
+      async function () {
+        const userId = Cookies.get("userId");
+        const token = Cookies.get("userToken");
+
+        try {
+          console.log("delete");
+          await axios.delete(
+            `https://gamepad-back.api.dotonur.dev/user/delete?userId=${userId}`,
+            {
+              headers: {
+                authorization: "Bearer " + token,
+              },
+            }
+          );
+          Cookies.remove("userId");
+          Cookies.remove("userToken");
+          Cookies.remove("userAvatar");
+          Cookies.remove("userId");
+          setUser(null);
+          alertify.success("your account has been deleted");
+        } catch (error) {
+          console.log(error.message);
+        }
+      },
+      function () {
+        alertify.success("Cancelled");
+      }
+    );
+  };
+
   const handleDeleteReview = async (id) => {
     try {
       const userId = Cookies.get("userId");
       const response = await axios.delete(
-        `https://gamepad-clone.herokuapp.com/game/review/delete?reviewId=${id}&userId=${userId}`
+        `https://gamepad-back.api.dotonur.dev/game/review/delete?reviewId=${id}&userId=${userId}`
       );
       setUserReviews(response.data.userReviews);
     } catch (error) {
@@ -220,7 +260,7 @@ const MyProfile = ({ setUser }) => {
         </div>
       </section>
       <section className="delete-account">
-        <button>Delete my account</button>
+        <button onClick={() => handleDeleteUser()}>Delete my account</button>
       </section>
     </div>
   );

@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/logo_header.png";
 import "./header.css";
+import MenuMobile from "./MenuMobile";
 
 const Header = ({ token, setToken, setUserCollection }) => {
   // console.log(token);
@@ -15,6 +16,11 @@ const Header = ({ token, setToken, setUserCollection }) => {
           <span className="logo_text">Gamepad</span>
         </div>
       </Link>
+      <MenuMobile
+        token={token}
+        setToken={setToken}
+        setUserCollection={setUserCollection}
+      />
       <nav className="navbar">
         <Link to="/user/collection">
           <span className="header_link_1">My Collection</span>

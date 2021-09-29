@@ -142,6 +142,25 @@
   text-decoration: underline;
   text-decoration-color: var(--gamepad-red);
 }
+
+@media (max-width: 575.98px) {
+  .home .home_hero {
+    width: 90vw;
+  }
+  .home_hero > img {
+    width: 100%;
+  }
+  .home .home_hero .hero_search_block .autocomplate {
+    top: 35px;
+  }
+  .home .home_hero {
+    margin-bottom: 40px;
+  }
+  .home .home_hero .hero_search_block {
+    height: 35px;
+  }
+}
+
 /*------------------------ HOME MAIN ------------------------ */
 .home .home_main {
   flex-direction: column;
@@ -181,19 +200,102 @@
   box-shadow: 0 0 10px var(--gamepad-red);
   transform: scale(1.01);
 }
-.main_cards .card img {
+.main_cards .card > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.platform-icons > img {
+  margin: 0 10px;
+}
 .main_cards .card .card_text {
   position: absolute;
+  background-color: rgb(60, 60, 60, 0.4);
   bottom: 0;
   left: 0;
-  height: 40px;
-  width: 95%;
-  padding: 0 5px;
+  height: 80px;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
 }
 .main_cards .card .card_title {
   color: #fff;
+  margin: 5px;
+}
+
+@media (max-width: 1380px) {
+  .main_cards .card {
+    position: relative;
+    width: 21vw;
+    height: 28vw;
+    border-radius: 20px;
+    margin: 10px;
+  }
+  .home .home_main .main_cards {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .main_cards .card {
+    position: relative;
+    width: 28vw;
+    height: 35vw;
+    border-radius: 20px;
+    margin: 10px;
+  }
+}
+@media (max-width: 767.98px) {
+  .main_cards .card {
+    position: relative;
+    width: 42vw;
+    height: 45vw;
+  }
+}
+@media (max-width: 630.98px) {
+  .main_cards .card {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    background-color: #2a2b2e;
+  }
+  .home .home_main .main_cards {
+    justify-content: center;
+  }
+  /* .main_cards .card > img {
+    height: 70%;
+  } */
+  .main_cards .card .card_text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .main_cards .card {
+    position: relative;
+    width: 90vw;
+    height: 90vw;
+  }
+  .main_cards .card .card_text {
+    font-size: 1.1rem;
+  }
+  .home .home_main .main_title_block h1 {
+    font-size: 1.2rem;
+  }
+  .home .home_hero .searchTextBlock {
+    font-size: 1.5rem;
+  }
 }

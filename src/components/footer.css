@@ -1,20 +1,21 @@
 footer {
+  height: 99px;
   margin-top: auto;
   border-top: 1px solid rgb(95, 94, 94);
-  width: 100vw;
+  overflow: hidden;
   display: flex;
 }
-footer div {
+footer > div {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   color: #808080;
   background-color: #171719;
   font-size: 13px;
   line-height: 16px;
-  height: 100px;
   width: 100%;
 }
+
 footer span,
 footer a {
   cursor: pointer;
@@ -24,4 +25,10 @@ footer a {
 }
 footer .api {
   text-decoration: underline;
+}
+@media (max-width: 767.98px) {
+  footer div {
+    font-size: 12px;
+    flex-direction: column;
+  }
 }

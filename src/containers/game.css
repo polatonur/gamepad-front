@@ -37,6 +37,7 @@
 .game_details .game_info > div {
   width: 50%;
   height: 100%;
+  box-sizing: border-box;
 }
 .game_details .game_info .info_col_1 {
   border-radius: 20px;
@@ -235,4 +236,88 @@
 .game_reviews .no_review {
   color: white;
   font-size: 2rem;
+}
+@media (max-width: 1380px) {
+}
+
+@media (max-width: 991.98px) {
+  .game_like_ame_cards_card .card_text {
+    height: 60px;
+  }
+  .game_details {
+    height: 890px;
+  }
+  .game_details .game_info {
+    flex-direction: column;
+    height: 800px;
+  }
+  .game_details .game_info > div {
+    width: 100%;
+    height: 800px;
+    margin-bottom: 20px;
+  }
+  .game_details .game_info > div:first-child {
+    height: 30%px;
+  }
+  .game_like_ame_cards a {
+    flex: none;
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  .game_like_ame_cards {
+    justify-content: start;
+  }
+}
+@media (max-width: 767.98px) {
+  .game_like_ame_cards a {
+    width: 80vw;
+  }
+  .game_like_ame_cards_card {
+    height: 400px;
+  }
+  .game_reviews {
+    width: 100%;
+    overflow: hidden;
+  }
+  .review {
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+  .game_like_ame_cards {
+    justify-content: center;
+  }
+}
+@media (max-width: 575.98px) {
+  .game_details > h1 {
+    font-size: 25px;
+  }
+  .games_like h1 {
+    font-size: 20px;
+  }
+  /* .info_col_2_other_lines {
+  } */
+  .game_like_ame_cards a {
+    width: 95vw;
+  }
+  .game_like_ame_cards {
+    overflow-y: scroll;
+    width: 100%;
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .game_details {
+    height: 1100px;
+  }
+  .game_details .game_info {
+    flex-direction: column;
+    height: 1100px;
+  }
+  .game_details .game_info .info_col_2 {
+    font-size: 14px;
+  }
+  .game_reviews > h2 {
+    font-size: 24px;
+  }
 }
