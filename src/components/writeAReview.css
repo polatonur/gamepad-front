@@ -59,9 +59,10 @@
 .write_a_review_block form input {
   text-overflow: clip;
   width: 100%;
-  height: 30px;
+  height: 40px;
   outline: none;
   font-size: 1rem;
+  box-sizing: border-box;
   padding: 4px;
 }
 .write_a_review_block form textarea {
@@ -71,6 +72,7 @@
   width: 100%;
   font-size: 1rem;
   padding: 4px;
+  box-sizing: border-box;
 }
 
 .write_a_review_block form button {
@@ -84,4 +86,38 @@
   line-height: 21px;
   font-family: "Exo", sans-serif;
   border: none;
+}
+
+@media (max-width: 991px) {
+  .write_a_review_block {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .write_a_review_block form {
+    width: 95%;
+  }
+
+  .write_a_review_block form button {
+    align-self: flex-start;
+  }
+  .write_a_review_close_icon {
+    top: 20px;
+    right: 40px;
+  }
+}
+@media (max-width: 791px) {
+  .write_a_review_block h1 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 510px) {
+  .write_a_review_block h1 {
+    font-size: 20px;
+    padding: 0;
+    width: 100%;
+    margin: 30px 0 10px;
+  }
+  .game_reviews h1::before {
+    display: none;
+  }
 }

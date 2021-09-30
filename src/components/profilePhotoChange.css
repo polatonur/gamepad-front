@@ -66,3 +66,10 @@
   display: none;
   border: none;
 }
+@media (max-width: 920.98px) {
+  .my-profile main .profile-photo .no-photo {
+    width: 150px;
+    height: 150px;
+    top: -75px;
+  }
+}

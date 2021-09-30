@@ -26,6 +26,8 @@ import {
   faEyeSlash,
   faEye,
   faBars,
+  faArrowRight,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import Home from "./containers/Home";
 import Header from "./components/Header";
@@ -40,6 +42,8 @@ import axios from "axios";
 import MyProfile from "./containers/MyProfile";
 
 library.add(
+  faArrowRight,
+  faArrowLeft,
   faEyeSlash,
   faEye,
   faEdit,

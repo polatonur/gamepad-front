@@ -188,6 +188,10 @@
   }
 }
 @media (max-width: 575.98px) {
+  .signup .signup_block .col_2 {
+    height: 480px;
+    padding: 30px;
+  }
   .signup .signup_block {
     justify-content: center;
     background: linear-gradient(#0f0f0f, #37373b);

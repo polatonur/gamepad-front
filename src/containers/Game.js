@@ -1,7 +1,7 @@
 import "./game.css";
 import { useParams, useHistory } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ActivityIndicator from "../components/ActivityIndicator";
@@ -21,6 +21,12 @@ const Game = ({ token, getCollectionList, userCollection }) => {
   const history = useHistory();
 
   let isGameSaved = false;
+
+  const ref = useRef(0);
+
+  const handleClickScroll = (scrollOffset) => {
+    ref.current.scrollLeft += scrollOffset;
+  };
 
   const getGameReviewList = async () => {
     try {
@@ -279,8 +285,14 @@ const Game = ({ token, getCollectionList, userCollection }) => {
         </div>
       </div>
       <div className="games_like">
+        <span onClick={() => handleClickScroll(-330)}>
+          <FontAwesomeIcon className="arrow-left" icon="arrow-left" />
+        </span>
+        <span onClick={() => handleClickScroll(330)}>
+          <FontAwesomeIcon className="arrow-right" icon="arrow-right" />
+        </span>
         <h1>Games like {data.message.name}</h1>
-        <div className="game_like_ame_cards">
+        <div ref={ref} className="game_like_ame_cards">
           {gamesLikeData.map((elem) => {
             return (
               <Link

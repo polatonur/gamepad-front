@@ -10,31 +10,44 @@
 }
 .menu-mobile .menu-block {
   z-index: 100;
-  background-color: rgb(228, 223, 223);
-  display: none;
+  background: linear-gradient(#37373b, #0f0f0f);
   position: fixed;
-  transition: all 0.3s linear;
+  transition: all 0.3s ease;
   top: 0;
-  right: 0;
-  width: 300px;
-  color: #000;
+  right: -100vw;
+  width: 100vw;
+  height: 100vh;
+  color: white;
   border-radius: 5px;
-  padding: 20px 0;
+  box-sizing: border-box;
+  padding: 20px;
 }
 .menu-mobile .menu-block p {
   text-align: end;
-  padding: 0px 20px;
+  padding: 0px 10px;
+  height: 30px;
 }
 .menu-mobile .menu-block .close-icon {
   cursor: pointer;
   font-size: 1.5rem;
+}
+.menu_mobile_signout_btn {
+  background-color: var(--gamepad-red);
+  border-radius: 5px;
+  align-self: flex-end;
+  justify-self: end;
+}
+.menu-mobile .menu-block ul {
+  display: flex;
+  flex-direction: column;
+  height: calc(95vh - 30px);
 }
 .menu-mobile .menu-block ul li {
   font-size: 1.5rem;
   padding: 10px;
   cursor: pointer;
 }
-.menu-mobile .menu-block ul li:hover {
+.menu-mobile .menu-block ul a:hover {
   background-color: rgb(176, 173, 173);
 }
 

@@ -1,5 +1,8 @@
 /*------------------------ HEADER ------------------------ */
 header {
+  position: sticky;
+  top: 0;
+  z-index: 150;
   box-sizing: border-box;
   height: 73px;
   border-bottom: 2px solid var(--gamepad-red);

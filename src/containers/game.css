@@ -127,8 +127,26 @@
 }
 
 /*//////////// GAMES LIKE ////////////*/
+.arrow-left,
+.arrow-right {
+  z-index: 150;
+  display: none;
+  position: absolute;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 10px;
+  top: 250px;
+}
+.arrow-left {
+  left: 0;
+}
+.arrow-right {
+  right: 0;
+}
 .games_like {
   width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,7 +315,14 @@
   /* .info_col_2_other_lines {
   } */
   .game_like_ame_cards a {
-    width: 95vw;
+    width: 93vw;
+  }
+  .arrow-left,
+  .arrow-right {
+    display: block;
+  }
+  .game_reviews .no_review {
+    font-size: 1.5rem;
   }
   .game_like_ame_cards {
     overflow-y: scroll;
