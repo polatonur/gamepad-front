@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 import logo from "../assets/img/logo_header.png";
 
 const Review = ({
+  id,
   reviewData,
   getGameReviewList,
   userRatings,
@@ -41,7 +42,7 @@ const Review = ({
           },
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       getUserRatingList();
       getGameReviewList();
     } catch (error) {
@@ -66,20 +67,15 @@ const Review = ({
       }
     }
   };
-
   return (
-    <div className="review">
+    <div key={id} className="review">
       <h3>{reviewData.title}</h3>
       <p>{reviewData.text}</p>
       <div className="writer">
         <div className="col-1">
           <div className="writer-photo">
             <img
-              src={
-                Cookies.get("userAvatar") !== "undefined"
-                  ? reviewData.owner.avatar
-                  : logo
-              }
+              src={reviewData.owner.avatar ? reviewData.owner.avatar : logo}
               alt="profile"
             />
           </div>
