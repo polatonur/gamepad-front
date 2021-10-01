@@ -47,9 +47,9 @@
 <p align="center">  <img src="/src/assets/img/logo.png" alt="Logo" width="280" height="80"> </p>
 
 - Login, signup, account pages
-<br/>
-<br/>
-<p align="center">  <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_login.png?raw=true" alt="Logo" width="80" height="80"> &nbsp;&nbsp; <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_signup.png?raw=true" alt="Logo" width="80" height="80"> </p>
+  <!-- <br/>
+  <br/> -->
+  <!-- <p align="center">  <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_login.png?raw=true" alt="Logo" width="400" height="250"> &nbsp;&nbsp; <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_signup.png?raw=true" alt="Logo" width="400" height="250"> </p> -->
 - Create your game collection
 - Add review about a game
 - Search a game by name and use autocomplate
@@ -82,6 +82,8 @@
 
 ## Getting Started
 
+### Installation
+
 Download App and install packages
 
 - yarn
@@ -90,7 +92,7 @@ Download App and install packages
   yarn
   ```
 
-## Usage#
+### Usage
 
 - npm
   ```sh
@@ -101,10 +103,8 @@ Download App and install packages
 
 <!-- ROADMAP -->
 
-![alt text](https://github.com/polatonur/readme_pics/blob/master/desktop_deliveroo_gif.gif?raw=true)
-
 ## Contact
 
 Onur POLAT
 
-Project Link: [https://github.com/polatonur/deliveroo-front-ts](https://github.com/polatonur/deliveroo-front-ts)
+Project Link: [https://github.com/polatonur/gamepad-front](https://github.com/polatonur/gamepad-front/)
