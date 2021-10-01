@@ -33,11 +33,11 @@ const Game = ({ token, getCollectionList, userCollection }) => {
       const response = await axios.get(
         `https://gamepad-back.api.dotonur.dev/game/reviews/get/${id}`
       );
-      console.log(response.data.message);
+      // console.log(response.data.message);
 
       if (response.data.message) {
         setGameReviews(response.data.message);
-        console.log("reviews ===>", response.data.message);
+        // console.log("reviews ===>", response.data.message);
       } else {
         setGameReviews([]);
       }
@@ -52,7 +52,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
       const response = await axios.get(
         `https://gamepad-back.api.dotonur.dev/user/ratings/get?id=${userId}`
       );
-      console.log("getUserRatingList==>", response.data);
+      // console.log("getUserRatingList==>", response.data);
       setUserRatings(response.data);
     } catch (error) {
       console.log(error.message);
@@ -83,7 +83,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
               }
             );
             const results = response2.data.message.results;
-            console.log("games like===>", response2);
+            // console.log("games like===>", response2);
             let counter = 0;
             const newResults = [];
             for (let i = 0; i < results.length; i++) {
@@ -125,7 +125,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     const token = Cookies.get("userToken");
     const operation = "add";
     try {
-      const response = await axios.put(
+      await axios.put(
         "https://gamepad-back.api.dotonur.dev/user/collection/update",
         {
           gameData,
@@ -138,7 +138,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
           },
         }
       );
-      console.log(response.data.message);
+      // console.log(response.data.message);
       getCollectionList();
       // console.log("handleSaveToCollection");
     } catch (error) {
@@ -336,10 +336,11 @@ const Game = ({ token, getCollectionList, userCollection }) => {
             {gameRewiews.map((elem) => {
               return (
                 <Review
+                  key={elem._id}
                   token={token}
                   getUserRatingList={getUserRatingList}
                   userRatings={userRatings}
-                  key={elem.id}
+                  id={elem._id}
                   reviewData={elem}
                   getGameReviewList={getGameReviewList}
                 />

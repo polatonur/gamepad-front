@@ -10,12 +10,12 @@ const Header = ({ token, setToken, setUserCollection }) => {
   // console.log(Cookies.get("userName"));
   return (
     <header className="header container">
-      <Link to="/">
+      <a href="/">
         <div className="header_logo_block">
           <img className="header_logo" src={logo} alt="gamepad" />
           <span className="logo_text">Gamepad</span>
         </div>
-      </Link>
+      </a>
       <MenuMobile
         token={token}
         setToken={setToken}

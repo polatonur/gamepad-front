@@ -67,6 +67,7 @@ const MenuMobile = ({ token, setToken, setUserCollection }) => {
                 onClick={() => {
                   setToken(null);
                   setUserCollection("");
+                  setDisplayMenu(false);
                 }}
               >
                 Logout <FontAwesomeIcon icon="sign-out-alt" />

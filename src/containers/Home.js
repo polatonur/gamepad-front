@@ -29,7 +29,7 @@ const Home = () => {
   const [autocomplateResults, setAutocomplateResults] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  console.log("width", windowWidth);
+  // console.log("width", windowWidth);
   useEffect(() => {
     const handleResize = () => {
       const { innerWidth } = window;
@@ -41,13 +41,9 @@ const Home = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // eslint-disable-next-line no-restricted-globals
-  console.log(innerWidth);
-
   let countString = "";
   useEffect(() => {
     const fetchData = async () => {
-      console.log("pagesize", windowWidth > 990 ? 20 : 21);
       try {
         const params = {
           page: activePage,
@@ -63,7 +59,7 @@ const Home = () => {
             params: params,
           }
         );
-        console.log(response.data.message);
+        // console.log(response.data.message);
         setData(response.data);
         setFullSearchedText(searhedText);
         setDisplayAutocomplateBlock(false);

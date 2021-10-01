@@ -83,7 +83,7 @@ const App = () => {
     setUserCollection(response.data.message);
   };
 
-  console.log("user collection ====>", userCollection);
+  // console.log("user collection ====>", userCollection);
   useEffect(() => {
     if (token) {
       getCollectionList();
