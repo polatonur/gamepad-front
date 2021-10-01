@@ -28,6 +28,7 @@ const Review = ({
     const userId = Cookies.get("userId");
     const token = Cookies.get("userToken");
     try {
+      // eslint-disable-next-line no-unused-vars
       const response = await axios.put(
         "https://gamepad-clone.herokuapp.com/game/review/rating",
         {
