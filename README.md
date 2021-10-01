@@ -47,16 +47,29 @@
 <p align="center">  <img src="/src/assets/img/logo.png" alt="Logo" width="80" height="80"> </p>
 
 - Login, signup, account pages
+<br/>
+<br/>
+<p align="center">  <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_login.png?raw=true" alt="Logo" width="80" height="80"> &nbsp;&nbsp; <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_signup.png?raw=true" alt="Logo" width="80" height="80"> </p>
 - Create your game collection
 - Add review about a game
-- Search a game by name
+- Search a game by name and use autocomplate
+  <br/>
+  <br/>
+  ![alt text](https://github.com/polatonur/readme_pics/blob/master/gamepad_autocomplate.gif?raw=true)
 - Filter games by platform and type,
+  <br/>
+  <br/>
+  ![alt text](https://github.com/polatonur/readme_pics/blob/master/gamepad_filter.gif?raw=true)
 - Sort games
 - Rate reviews
+  <br/>
+  <br/>
+  ![alt text](https://github.com/polatonur/readme_pics/blob/master/gamepad_rating.gif?raw=true)
 - Reusable pagination component
+  <br/>
+  <br/>
+  ![alt text](https://github.com/polatonur/readme_pics/blob/master/gamepad_pagination.gif?raw=true)
 - The app is fully responsive.
-
-![alt text](https://github.com/polatonur/readme_pics/blob/master/mobile_deliveroo_gif.gif?raw=true)
 
 ### Built With
 
