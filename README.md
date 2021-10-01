@@ -49,7 +49,7 @@
 - Login, signup, account pages
   <!-- <br/>
   <br/> -->
-  <!-- <p align="center">  <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_login.png?raw=true" alt="Logo" width="400" height="250"> &nbsp;&nbsp; <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_signup.png?raw=true" alt="Logo" width="400" height="250"> </p> -->
+  <p align="center">  <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_login.png?raw=true" alt="Logo" width="400" height="250"> &nbsp;&nbsp; <img src="https://github.com/polatonur/readme_pics/blob/master/gamepad_signup.png?raw=true" alt="Logo" width="400" height="250"> </p> 
 - Create your game collection
 - Add review about a game
 - Search a game by name and use autocomplate
