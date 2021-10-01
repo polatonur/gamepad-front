@@ -2,10 +2,10 @@
 <br />
 <h1 align="center">Used Tech Stacks</h1>
 <p align="center">
-    <img src="https://raw.githubusercontent.com/polatonur/readme_pics/e5e619c8b81cac5e23f8ad0cb03f7decf6607a7f/react.svg?token=AROHQVIMQCQBW75FJ3ZHARTBK3UIG" alt="Logo" width="80" height="80"> +
-    <img src=https://github.com/polatonur/readme_pics/blob/master/react-router.png?raw=true" alt="Logo" width="80" height="80"> +
-    <img src="https://raw.githubusercontent.com/polatonur/readme_pics/e5e619c8b81cac5e23f8ad0cb03f7decf6607a7f/mongoDB.svg?token=AROHQVLFIPQY5VJ343UEZTTBK3TZE" alt="Logo" width="80" height="80">+
-        <img src="https://github.com/polatonur/readme_pics/blob/master/cloudinary.png?raw=true" alt="Logo" width="80" height="80"> +
+    <img src="https://github.com/polatonur/readme_pics/blob/master/react.svg?raw=true" alt="Logo" width="80" height="80">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src=https://github.com/polatonur/readme_pics/blob/master/react-router.png?raw=true" alt="Logo" width="80" height="80"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/polatonur/readme_pics/blob/master/mongoDB.svg?raw=true" alt="Logo" width="180" height="80">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/polatonur/readme_pics/blob/master/cloudinary.png?raw=true" alt="Logo" width="280" height="80"> 
 
   <h3 align="center">Game collection App created with react</h3>
 
@@ -44,7 +44,7 @@
 
 ## About The Project
 
-<p align="center">  <img src="/src/assets/img/logo.png" alt="Logo" width="80" height="80"> </p>
+<p align="center">  <img src="/src/assets/img/logo.png" alt="Logo" width="280" height="80"> </p>
 
 - Login, signup, account pages
 <br/>
