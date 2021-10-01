@@ -5,7 +5,7 @@
     <img src="https://github.com/polatonur/readme_pics/blob/master/react.svg?raw=true" alt="Logo" width="80" height="80">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src=https://github.com/polatonur/readme_pics/blob/master/react-router.png?raw=true" alt="Logo" width="80" height="80"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="https://github.com/polatonur/readme_pics/blob/master/mongoDB.svg?raw=true" alt="Logo" width="180" height="80">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/polatonur/readme_pics/blob/master/cloudinary.png?raw=true" alt="Logo" width="280" height="80"> 
+    <img src="https://github.com/polatonur/readme_pics/blob/master/cloudinary.png?raw=true" alt="Logo" width="280" height="80">
 
   <h3 align="center">Game collection App created with react</h3>
 
