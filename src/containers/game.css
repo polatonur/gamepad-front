@@ -1,3 +1,12 @@
+.game_like_ame_cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.game_like_ame_cards {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .game {
   box-sizing: border-box;
   padding: 40px 20px;
@@ -17,7 +26,7 @@
   font-size: 35px;
   color: white;
   margin-bottom: 40px;
-  width: max-content;
+  width: 100%;
 }
 .game_details > h1::before {
   z-index: -4;
@@ -293,6 +302,10 @@
   .game_like_ame_cards_card {
     height: 400px;
   }
+  .games_like h1 {
+    width: 100%;
+    line-height: 32px;
+  }
   .game_reviews {
     width: 100%;
     overflow: hidden;
@@ -308,9 +321,11 @@
 @media (max-width: 575.98px) {
   .game_details > h1 {
     font-size: 25px;
+    line-height: 28px;
   }
   .games_like h1 {
     font-size: 20px;
+    line-height: 23px;
   }
   /* .info_col_2_other_lines {
   } */
