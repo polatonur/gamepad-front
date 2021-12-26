@@ -59,7 +59,7 @@ const Home = () => {
             params: params,
           }
         );
-        // console.log(response.data.message);
+
         setData(response.data);
         setFullSearchedText(searhedText);
         setDisplayAutocomplateBlock(false);
