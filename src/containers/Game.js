@@ -31,7 +31,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
   const getGameReviewList = async () => {
     try {
       const response = await axios.get(
-        `https://happ-cow-onur.herokuapp.com/game/reviews/get/${id}`
+        `https://gamepad-clone.herokuapp.com/game/reviews/get/${id}`
       );
       // console.log(response.data.message);
 
@@ -50,7 +50,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     try {
       const userId = Cookies.get("userId");
       const response = await axios.get(
-        `https://happ-cow-onur.herokuapp.com/user/ratings/get?id=${userId}`
+        `https://gamepad-clone.herokuapp.com/user/ratings/get?id=${userId}`
       );
       // console.log("getUserRatingList==>", response.data);
       setUserRatings(response.data);
@@ -63,7 +63,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     const fetchData = async () => {
       try {
         const response1 = await axios.get(
-          `https://happ-cow-onur.herokuapp.com/game/${id}`
+          `https://gamepad-clone.herokuapp.com/game/${id}`
         );
         // console.log(response1.data);
         setData(response1.data);
@@ -77,7 +77,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
               genres: "0",
             };
             const response2 = await axios.get(
-              "https://happ-cow-onur.herokuapp.com/game/all",
+              "https://gamepad-clone.herokuapp.com/game/all",
               {
                 params: params,
               }
@@ -126,7 +126,7 @@ const Game = ({ token, getCollectionList, userCollection }) => {
     const operation = "add";
     try {
       await axios.put(
-        "https://happ-cow-onur.herokuapp.com/user/collection/update",
+        "https://gamepad-clone.herokuapp.com/user/collection/update",
         {
           gameData,
           id,

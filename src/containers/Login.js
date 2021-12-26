@@ -25,7 +25,7 @@ const Login = ({ setUser }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://happ-cow-onur.herokuapp.com/user/login",
+        "https://gamepad-clone.herokuapp.com/user/login",
         {
           password,
           email,

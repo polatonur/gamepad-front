@@ -54,7 +54,7 @@ const Home = () => {
           parent_platforms: platform,
         };
         const response = await axios.get(
-          "https://happ-cow-onur.herokuapp.com//game/all",
+          "https://gamepad-clone.herokuapp.com/game/all",
           {
             params: params,
           }
@@ -94,7 +94,7 @@ const Home = () => {
             parent_platforms: "0",
           };
           const response = await axios.get(
-            "https://happ-cow-onur.herokuapp.com//game/all",
+            "https://gamepad-clone.herokuapp.com/game/all",
             {
               params: params,
             }

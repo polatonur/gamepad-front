@@ -31,7 +31,7 @@ const MyProfile = ({ setUser }) => {
       const id = Cookies.get("userId");
       const token = Cookies.get("userToken");
       const response = await axios.get(
-        `https://happ-cow-onur.herokuapp.com/user/account?id=${id}`,
+        `https://gamepad-clone.herokuapp.com/user/account?id=${id}`,
         {
           headers: {
             authorization: "Bearer " + token,
@@ -68,7 +68,7 @@ const MyProfile = ({ setUser }) => {
       formData.append("userId", userId);
 
       const response = await axios.put(
-        "https://happ-cow-onur.herokuapp.com/user/account/update",
+        "https://gamepad-clone.herokuapp.com/user/account/update",
         formData,
         {
           headers: {
@@ -102,7 +102,7 @@ const MyProfile = ({ setUser }) => {
         try {
           console.log("delete");
           await axios.delete(
-            `https://happ-cow-onur.herokuapp.com/user/delete?userId=${userId}`,
+            `https://gamepad-clone.herokuapp.com/user/delete?userId=${userId}`,
             {
               headers: {
                 authorization: "Bearer " + token,
@@ -129,7 +129,7 @@ const MyProfile = ({ setUser }) => {
     try {
       const userId = Cookies.get("userId");
       const response = await axios.delete(
-        `https://happ-cow-onur.herokuapp.com/game/review/delete?reviewId=${id}&userId=${userId}`
+        `https://gamepad-clone.herokuapp.com/game/review/delete?reviewId=${id}&userId=${userId}`
       );
       setUserReviews(response.data.userReviews);
     } catch (error) {
