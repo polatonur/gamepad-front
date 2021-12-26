@@ -27,7 +27,7 @@ const Signup = ({ setUser }) => {
       formData.append("password", password);
       try {
         const response = await axios.post(
-          "https://gamepad-back.api.dotonur.dev/user/signup",
+          "https://happ-cow-onur.herokuapp.com/user/signup",
           formData
         );
         console.log(response.data);

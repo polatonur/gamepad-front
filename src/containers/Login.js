@@ -25,7 +25,7 @@ const Login = ({ setUser }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://gamepad-back.api.dotonur.dev/user/login",
+        "https://happ-cow-onur.herokuapp.com/user/login",
         {
           password,
           email,

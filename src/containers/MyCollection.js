@@ -16,7 +16,7 @@ const MyCollection = ({ getCollectionList }) => {
       const id = Cookies.get("userId");
       const token = Cookies.get("userToken");
       const response = await axios.get(
-        `https://gamepad-back.api.dotonur.dev/user/collection/get?id=${id}&page=${activePage}`,
+        `https://happ-cow-onur.herokuapp.com/user/collection/get?id=${id}&page=${activePage}`,
         {
           headers: {
             authorization: "Bearer " + token,
@@ -35,7 +35,7 @@ const MyCollection = ({ getCollectionList }) => {
     const token = Cookies.get("userToken");
     try {
       const response = await axios.put(
-        "https://gamepad-back.api.dotonur.dev/user/collection/update",
+        "https://happ-cow-onur.herokuapp.com/user/collection/update",
         {
           gameData,
           id,
